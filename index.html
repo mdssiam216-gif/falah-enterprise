@@ -14,7 +14,6 @@
             --primary: #1b4d3e;
             --primary-dark: #113327;
             --accent: #ff6b6b;
-            --accent-hover: #ff5252;
             --bg-light: #f8f9fa;
             --text-main: #2d3748;
             --text-muted: #718096;
@@ -145,7 +144,7 @@
             color: #ffeaa7;
         }
 
-        /* Common Section Title */
+        /* Titles */
         .sec-title {
             text-align: center;
             margin: 60px 0 35px 0;
@@ -221,7 +220,7 @@
             background-color: #219150;
         }
 
-        /* Testimonials/Reviews */
+        /* Testimonials */
         .reviews-bg {
             background-color: #edf2f7;
             padding: 60px 0;
@@ -275,7 +274,6 @@
             margin-top: 60px;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.3rem; }
             .navbar { flex-direction: column; gap: 15px; }
@@ -314,7 +312,7 @@
         </div>
     </section>
 
-    <!-- PREMIUM PRODUCTS SECTIONS -->
+    <!-- PRODUCTS SECTIONS -->
     <h2 class="sec-title">আমাদের বিশেষ পণ্যসমূহ</h2>
     <section class="grid-container">
         
@@ -322,7 +320,7 @@
         <div class="prod-card">
             <img class="prod-img" src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=400&q=80" alt="মসলা">
             <div class="prod-info">
-                <div class="prod-title">খাঁটি গুড়ো মসলা প্যাকেজ</div>
+                <div class="prod-title">খাঁটি guṛo মসলা প্যাকেজ</div>
                 <div class="prod-price">৳ ২৫০ / কেজি</div>
                 <a href="https://wa.me/8801730824274?text=আমি%20খাঁটি%20গুড়ো%20মসলা%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
                     <i class="fab fa-whatsapp"></i> অর্ডার করুন
@@ -368,7 +366,7 @@
 
     </section>
 
-    <!-- CUSTOMER REVIEWS -->
+    <!-- REVIEWS -->
     <section class="reviews-bg">
         <h2 class="sec-title" style="margin-top: 0;">গ্রাহকদের মতামত</h2>
         <div class="grid-container">
@@ -385,7 +383,7 @@
         </div>
     </section>
 
-    <!-- ADDRESS & PROPRIETOR INFO -->
+    <!-- CONTACT & INFO -->
     <h2 class="sec-title">যোগাযোগের বিবরণ</h2>
     <section class="info-box">
         <div class="info-card">
@@ -405,350 +403,6 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 ফালাহ এন্টারপ্রাইজ। সর্বস্বত্ব সংরক্ষিত।</p>
-        <p style="font-size: 0.85rem; margin-top: 5px; color: #718096;">Design upgraded to premium layout.</p>
-    </footer>
-
-</body>
-</html>
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 6px 20px rgba(23, 184, 144, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(30, 61, 89, 0.88), rgba(17, 34, 51, 0.92)), url('https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 120px 20px;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .quote-box {
-            max-width: 750px;
-            margin: 35px auto 0 auto;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 30px;
-            border-radius: 16px;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .quote-en {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            color: #f5f7fa;
-            margin-bottom: 12px;
-            font-weight: 400;
-        }
-
-        .quote-bn {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #ffeaa7;
-        }
-
-        /* Features Section */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 30px 0;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-light);
-            margin: 10px auto 0 auto;
-            border-radius: 2px;
-        }
-
-        /* Products Catalog Area */
-        .products-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .product-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .p-icon-wrapper {
-            width: 80px;
-            height: 80px;
-            background: #edfcf7;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 20px auto;
-            font-size: 2.2rem;
-            color: var(--primary-light);
-            transition: 0.3s;
-        }
-
-        .product-card:hover .p-icon-wrapper {
-            background: var(--primary-light);
-            color: white;
-            transform: rotate(-10deg);
-        }
-
-        .product-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .product-card p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        /* Info & Address Area */
-        .info-section {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 24px;
-            box-shadow: var(--card-shadow);
-            text-align: center;
-            border-bottom: 5px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-
-        .card.accent {
-            border-bottom-color: var(--primary-light);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-icon {
-            font-size: 2.8rem;
-            color: var(--primary-light);
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .card p {
-            color: var(--text-dark);
-            font-size: 1.15rem;
-            font-weight: 500;
-        }
-
-        /* Call To Action Buttons */
-        .social-section {
-            background: linear-gradient(to bottom, #ffffff, var(--bg-soft));
-            text-align: center;
-            padding: 80px 20px;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .social-section h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 35px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            font-size: 1.15rem;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .social-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-        }
-
-        .facebook { background: linear-gradient(135deg, #00c6ff, #0072ff); }
-        .whatsapp { background: linear-gradient(135deg, #11998e, #38ef7d); }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: rgba(255,255,255,0.6);
-            text-align: center;
-            padding: 30px;
-            font-size: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        /* Responsive UI */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.4rem; }
-            .navbar { flex-direction: column; gap: 20px; text-align: center; }
-            .quote-en { font-size: 1.25rem; }
-            .quote-bn { font-size: 1.35rem; }
-            .hero { border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; padding: 80px 15px; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Top Islamic Blessing Bar -->
-    <div class="top-bar">
-        <i class="fas fa-star-and-crescent" style="margin-right: 8px; color: #ffeaa7;"></i> বিছমিল্লাহির রাহমানির রাহীম
-    </div>
-
-    <!-- Main Header Area -->
-    <header>
-        <div class="navbar">
-            <div class="logo-area">
-                <!-- Custom V Circled Logo Concept -->
-                <div class="logo-placeholder">V</div>
-                <div class="brand-name">ফালাহ এন্টারপ্রাইজ</div>
-            </div>
-            <a href="tel:01730824274" class="contact-btn">
-                <i class="fas fa-phone-alt"></i> কল করুন: ০১৭৩০৮২৪২৭৪
-            </a>
-        </div>
-    </header>
-
-    <!-- Premium Hero Showcase Area -->
-    <section class="hero">
-        <h1>ফালাহ এন্টারপ্রাইজ</h1>
-        
-        <!-- Sacred & Pure Business Statement -->
-        <div class="quote-box">
-            <p class="quote-en">"Feeding the hungry is an act of worship."</p>
-            <p class="quote-bn">"ক্ষুধার্তকে খাবার খাওয়ানো ইবাদাত"</p>
-        </div>
-    </section>
-
-    <!-- BRAND PRODUCT CATALOGUE -->
-    <h2 class="section-title">আমাদের পণ্যের ক্যাটাগরি</h2>
-    <section class="products-container">
-        
-        <!-- Item 1 -->
-        <div class="product-card">
-            <div class="p-icon-wrapper"><i class="fas fa-mortar-pestle"></i></div>
-            <h3>খাঁটি মসলাজাতীয় পণ্য</h3>
-            <p>সেরা মানের হলুদ, মরিচ, ধনিয়া ও খাঁটি গুঁড়ো মসলা যা রান্নায় দেবে অতুলনীয় স্বাদ।</p>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="product-card">
-            <div class="p-icon-wrapper"><i class="fas fa-seedling"></i></div>
-            <h3>নিত্যপ্রয়োজনীয় চাল ও ডাল</h3>
-            <p>বাছাইকৃত প্রিমিয়াম মিনিকেট, নাজিরশাইল চাল এবং উন্নত মানের দেশী ডাল ও শস্যদানা।</p>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="product-card">
-            <div class="p-icon-wrapper"><i class="fas fa-oil-can"></i></div>
-            <h3>খাঁটি ভোজ্য তেল ও ঘি</h3>
-            <p>স্বাস্থ্যসম্মত সয়াবিন তেল, ঘানি ভাঙা খাঁটি সরিষার তেল এবং সুগন্ধি প্রিমিয়াম ঘি।</p>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="product-card">
-            <div class="p-icon-wrapper"><i class="fas fa-box-open"></i></div>
-            <h3>প্যাকেজড ও জেনারেল সামগ্রী</h3>
-            <p>দৈনন্দিন জীবনের প্রয়োজনীয় চা-পাতা, চিনি, সাবান, ডিটারজেন্ট এবং স্টেশনারি আইটেম।</p>
-        </div>
-
-    </section>
-
-    <!-- OWNER & LOCATION SHOWCASE -->
-    <h2 class="section-title">যোগাযোগ ও ঠিকানা</h2>
-    <section class="info-section">
-        
-        <!-- Corporate Proprietor Profile -->
-        <div class="card">
-            <div class="card-icon"><i class="fas fa-user-circle"></i></div>
-            <h3>সম্মানিত প্রোপ্রাইটর</h3>
-            <p style="font-size: 1.4rem; color: var(--primary); margin-bottom: 5px;">মো: শফিকুল ইসলাম</p>
-            <p style="color: var(--text-muted); font-size: 1rem; font-weight: 400;">আপনার যেকোনো পাইকারি ও খুচরা অর্ডারের জন্য আজই যোগাযোগ করুন।</p>
-        </div>
-
-        <!-- Physical Shop Location -->
-        <div class="card accent">
-            <div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
-            <h3>দোকানের অবস্থান</h3>
-            <p style="color: var(--primary);">রেইসকোর্স, ফ্লাইওভার সংলগ্ন,</p>
-            <p style="font-weight: 400; font-size: 1.05rem; margin-top: 5px; color: var(--text-muted);">সানমেডিকেল গলি, কুমিল্লা।</p>
-        </div>
-        
-    </section>
-
-    <!-- PREMIUM INTERACTIVE CALL TO ACTIONS -->
-    <section class="social-section">
-        <h2>সরাসরি অর্ডার বা তথ্য জানতে যোগাযোগ করুন</h2>
-        <div class="social-links">
-            <!-- Dynamic Social Connections -->
-            <a href="#" class="social-btn facebook" target="_blank">
-                <i class="fab fa-facebook-messenger" style="font-size: 1.4rem;"></i> মেসেঞ্জারে যোগাযোগ করুন
-            </a>
-            <a href="https://wa.me/8801730824274" class="social-btn whatsapp" target="_blank">
-                <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i> হোয়াটসঅ্যাপে অর্ডার করুন
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer Copyright Note -->
-    <footer>
-        <p>&copy; 2026 ফালাহ এন্টারপ্রাইজ। সর্বস্বত্ব সংরক্ষিত ও ডিজিটালি প্রস্তুতকৃত।</p>
     </footer>
 
 </body>
