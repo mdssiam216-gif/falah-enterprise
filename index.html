@@ -33,7 +33,7 @@
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
         body { font-family: 'Hind Siliguri', 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; padding-bottom: 60px; }
 
         .bismillah-bar { background: linear-gradient(90deg, var(--primary-dark), #1b4d3e); color: #ffeaa7; text-align: center; padding: 12px; font-size: 1.2rem; font-weight: 700; border-bottom: 4px solid #f1c40f; letter-spacing: 1px; }
@@ -41,84 +41,72 @@
         header { background: var(--bg-card); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); }
         .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
         .logo-box { display: flex; align-items: center; gap: 15px; }
-        .logo-circle { width: 50px; height: 50px; background: linear-gradient(135deg, #1b4d3e, var(--accent)); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; font-weight: bold; box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3); }
+        .logo-circle { width: 50px; height: 50px; background: linear-gradient(135deg, #1b4d3e, var(--accent)); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; font-weight: bold; }
         .brand-title { font-size: 1.8rem; font-weight: 800; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
         .nav-right { display: flex; align-items: center; gap: 20px; }
         .theme-toggle { background: var(--bg-light); border: 1px solid var(--border-color); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; color: var(--text-main); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        .theme-toggle:hover { transform: rotate(30deg); background: var(--border-color); }
-        .cart-icon-btn { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: white; padding: 10px 24px; border-radius: 30px; border: none; cursor: pointer; font-weight: 700; font-family: inherit; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); }
-        .cart-icon-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4); }
+        .cart-icon-btn { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: white; padding: 10px 24px; border-radius: 30px; border: none; cursor: pointer; font-weight: 700; display: flex; align-items: center; gap: 10px; }
 
-        .hero { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(27, 77, 62, 0.9)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop') no-repeat center center/cover; color: white; text-align: center; padding: 80px 20px; position: relative; overflow: hidden; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; animation: fadeInDown 1s; }
-        .motto-card { max-width: 650px; margin: 25px auto 0 auto; background: rgba(255, 255, 255, 0.1); border-radius: var(--radius); padding: 20px; border-left: 6px solid #f1c40f; backdrop-filter: blur(5px); }
-        .motto-bn { font-size: 1.6rem; color: #ffeaa7; font-weight: 700; margin-top: 5px; }
+        .hero { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(27, 77, 62, 0.9)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=800') no-repeat center center/cover; color: white; text-align: center; padding: 60px 20px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; }
+        .motto-card { max-width: 650px; margin: 25px auto 0 auto; background: rgba(255, 255, 255, 0.1); border-radius: var(--radius); padding: 20px; border-left: 6px solid #f1c40f; }
+        .motto-bn { font-size: 1.6rem; color: #ffeaa7; font-weight: 700; }
 
         .search-container { max-width: 550px; margin: -25px auto 0 auto; padding: 0 20px; position: relative; z-index: 10; }
         .search-bar { width: 100%; padding: 16px 50px 16px 25px; border-radius: 50px; border: none; background: var(--bg-card); color: var(--text-main); font-family: inherit; font-size: 1.1rem; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
-        .search-bar:focus { outline: 2px solid var(--accent); }
         .search-container i { position: absolute; right: 40px; top: 20px; color: var(--accent); font-size: 1.2rem; }
 
         .controls { text-align: center; margin: 40px 0 30px 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; padding: 0 10px; }
-        .filter-btn { background: var(--bg-card); border: 1px solid var(--border-color); padding: 10px 22px; border-radius: 30px; cursor: pointer; font-weight: 700; font-family: inherit; color: var(--text-main); box-shadow: var(--shadow); }
-        .filter-btn.active, .filter-btn:hover { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border-color: transparent; transform: translateY(-2px); }
+        .filter-btn { background: var(--bg-card); border: 1px solid var(--border-color); padding: 10px 22px; border-radius: 30px; cursor: pointer; font-weight: 700; color: var(--text-main); box-shadow: var(--shadow); }
+        .filter-btn.active, .filter-btn:hover { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border-color: transparent; }
 
         .grid-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-        .prod-card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-        .prod-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--accent); }
+        .prod-card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; }
         
-        /* Fixed Aspect Ratio Placeholder & High Performance Images */
-        .image-box { position: relative; width: 100%; height: 180px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .image-box { width: 100%; height: 180px; background: #e2e8f0; position: relative; }
         .prod-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .fallback-icon { font-size: 3.5rem; color: #a0aec0; position: absolute; z-index: 1; }
         
-        .prod-info { padding: 20px; text-align: center; z-index: 2; position: relative; background: var(--bg-card); }
+        .prod-info { padding: 20px; text-align: center; background: var(--bg-card); }
         .prod-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; min-height: 50px; display: flex; align-items: center; justify-content: center; color: var(--text-main); }
         .prod-price { font-size: 1.3rem; color: #e74c3c; font-weight: 800; margin-bottom: 15px; }
         
         .quantity-select { display: flex; justify-content: center; align-items: center; gap: 5px; margin-bottom: 15px; background: var(--bg-light); padding: 5px; border-radius: 30px; max-width: 140px; margin-left: auto; margin-right: auto; }
         .qty-btn { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; }
-        .qty-btn:hover { background: var(--accent); color: white; }
-        .qty-input { width: 45px; text-align: center; border: none; background: transparent; color: var(--text-main); font-weight: 700; font-size: 1.05rem; pointer-events: none; }
+        .qty-input { width: 45px; text-align: center; border: none; background: transparent; color: var(--text-main); font-weight: 700; font-size: 1.05rem; }
         
-        .add-cart-btn { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; padding: 12px 20px; border-radius: 12px; width: 100%; cursor: pointer; font-weight: 700; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; }
-        .add-cart-btn:hover { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); }
+        .add-cart-btn { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border: none; padding: 12px 20px; border-radius: 12px; width: 100%; cursor: pointer; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
-        .cart-section { max-width: 850px; margin: 60px auto; padding: 40px 25px; background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border-color); border-top: 6px solid #27ae60; position: relative; }
+        .cart-section { max-width: 850px; margin: 60px auto; padding: 40px 25px; background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border-color); border-top: 6px solid #27ae60; }
         .cart-table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; }
         .cart-table th { background: var(--bg-light); color: var(--text-main); font-weight: 700; padding: 15px 12px; }
         .cart-table td { padding: 15px 12px; border-bottom: 1px solid var(--border-color); }
         
         .coupon-box { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
-        .coupon-input { padding: 10px 15px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main); border-radius: 30px; font-family: inherit; width: 220px; }
+        .coupon-input { padding: 10px 15px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main); border-radius: 30px; width: 220px; }
         .coupon-btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: 700; }
 
         .bill-details { margin-top: 25px; text-align: right; font-size: 1.15rem; display: flex; flex-direction: column; gap: 8px; background: var(--bg-light); padding: 20px; border-radius: 15px; }
-        .total-price { font-size: 1.6rem; font-weight: 800; color: #e74c3c; border-top: 2px dashed var(--border-color); padding-top: 12px; margin-top: 5px; }
+        .total-price { font-size: 1.6rem; font-weight: 800; color: #e74c3c; border-top: 2px dashed var(--border-color); padding-top: 12px; }
         
         .order-form { margin-top: 35px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .form-group { display: flex; flex-direction: column; }
-        .form-group label { font-weight: 700; margin-bottom: 5px; color: var(--text-main); font-size: 0.95rem; }
-        .form-group input, .form-group textarea, .form-group select { padding: 12px 15px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main); border-radius: 12px; font-family: inherit; outline: none; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); background: var(--bg-card); }
-        .checkout-btn { grid-column: span 2; background: linear-gradient(135deg, #27ae60, #219150); color: white; border: none; padding: 15px; border-radius: 12px; font-size: 1.3rem; font-weight: 700; cursor: pointer; text-align: center; box-shadow: 0 5px 20px rgba(39, 174, 96, 0.4); display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .checkout-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(39, 174, 96, 0.5); }
+        .form-group label { font-weight: 700; margin-bottom: 5px; color: var(--text-main); }
+        .form-group input, .form-group textarea, .form-group select { padding: 12px 15px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main); border-radius: 12px; outline: none; }
+        .checkout-btn { grid-column: span 2; background: linear-gradient(135deg, #27ae60, #219150); color: white; border: none; padding: 15px; border-radius: 12px; font-size: 1.3rem; font-weight: 700; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; }
 
-        .floating-cart { position: fixed; bottom: 30px; right: 30px; background: #e74c3c; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.6rem; cursor: pointer; box-shadow: 0 10px 25px rgba(231, 76, 60, 0.5); z-index: 999; }
+        .floating-cart { position: fixed; bottom: 30px; right: 30px; background: #e74c3c; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.6rem; cursor: pointer; z-index: 999; }
         .floating-cart span { position: absolute; top: -5px; right: -5px; background: white; color: #e74c3c; font-weight: 800; border-radius: 50%; width: 22px; height: 22px; font-size: 0.85rem; display: flex; justify-content: center; align-items: center; border: 2px solid #e74c3c; }
 
-        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px); background: #2d3748; color: white; padding: 12px 30px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); font-weight: 600; z-index: 2000; opacity: 0; pointer-events: none; }
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px); background: #2d3748; color: white; padding: 12px 30px; border-radius: 30px; font-weight: 600; z-index: 2000; opacity: 0; }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
         .info-box { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .info-card { background: var(--bg-card); padding: 35px 20px; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border-color); border-top: 5px solid var(--primary); }
+        .info-card { background: var(--bg-card); padding: 35px 20px; border-radius: var(--radius); text-align: center; border: 1px solid var(--border-color); border-top: 5px solid var(--primary); }
         .info-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
 
         footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 35px 20px; margin-top: 80px; font-size: 1rem; border-top: 3px solid var(--accent); }
-        
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.4rem; } .navbar { flex-direction: column; gap: 15px; } .order-form { grid-template-columns: 1fr; } .checkout-btn { grid-column: span 1; } .floating-cart { bottom: 20px; right: 20px; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.4rem; } .navbar { flex-direction: column; gap: 15px; } .order-form { grid-template-columns: 1fr; } .checkout-btn { grid-column: span 1; } }
     </style>
 </head>
 <body>
@@ -161,169 +149,174 @@
         <button class="filter-btn" onclick="filterItems('toiletries')">কসমেটিকস ও স্টেশনারি</button>
     </div>
 
+    <!-- PRODUCT GRID CONTAINER WITH ULTRA RECOVERY STABLE LINKS -->
     <section class="grid-container" id="product-list">
         
+        <!-- --- CATEGORY: NITO --- -->
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-wheat-awn fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">নাজিরশাইল চাল (প্রিমিয়াম)</div><div class="prod-price">৳ ৮৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-1', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-1"><button class="qty-btn" onclick="changeQty('qty-1', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('নাজিরশাইল চাল', 85, 'qty-1')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-seedling fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1590543435777-62f4460a4f5d?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1590543435777-62f4460a4f5d?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">দেশী মসুর ডাল (বড় দানা)</div><div class="prod-price">৳ ১৪০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-2', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-2"><button class="qty-btn" onclick="changeQty('qty-2', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('দেশী মসুর ডাল', 140, 'qty-2')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-mortar-pestle fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">প্যাকেট আটা (তীর/বসুন্ধরা)</div><div class="prod-price">৳ ৬৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-3', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-3"><button class="qty-btn" onclick="changeQty('qty-3', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('প্যাকেট আটা', 65, 'qty-3')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-box fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1627485264133-7269d95f87b3?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">প্যাকেট ময়দা (উন্নত মানের)</div><div class="prod-price">৳ ৭৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-4', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-4"><button class="qty-btn" onclick="changeQty('qty-4', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('প্যাকেট ময়দা', 75, 'qty-4')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-cubes fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1610632380989-6801946ee675?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">সাদা চিনি (ফ্রেশ/দেশী)</div><div class="prod-price">৳ ১৩৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-5', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-5"><button class="qty-btn" onclick="changeQty('qty-5', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('সাদা চিনি', 135, 'qty-5')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-cloud fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1622484211148-716598e09141?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">আয়োডিনযুক্ত লবণ (মোল্লা)</div><div class="prod-price">৳ ৪২ / প্যাকেট</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-6', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-6"><button class="qty-btn" onclick="changeQty('qty-6', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('আয়োডিনযুক্ত লবণ', 42, 'qty-6')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-bowl-rice fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">ছোলা বুট (উন্নত মানের)</div><div class="prod-price">৳ ১১০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-7', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-7"><button class="qty-btn" onclick="changeQty('qty-7', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('ছোলা বুট', 110, 'qty-7')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-leaf fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1585993438487-765053b266e7?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">খোসা ছাড়া মুগ ডাল</div><div class="prod-price">৳ ১৬৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-8', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-8"><button class="qty-btn" onclick="changeQty('qty-8', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('মুগ ডাল', 165, 'qty-8')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-cookie fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">সুজি (প্যাকেটজাত ৫০০ গ্রাম)</div><div class="prod-price">৳ ৩৫ / প্যাকেট</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-9', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-9"><button class="qty-btn" onclick="changeQty('qty-9', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('সুজি ৫০০ গ্রাম', 35, 'qty-9')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><i class="fas fa-circle fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">লাল আলু (বগুড়ার দেশী)</div><div class="prod-price">৳ ৪৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-10', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-10"><button class="qty-btn" onclick="changeQty('qty-10', 1)">+</button></div>
-            <button class="add-cart-btn" onclick="addToCart('লাল আলু', 45, 'qty-10')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
+            <button class="add-cart-btn" onclick="addToCart('লাল আলু', 45, 'qty-10')"><i class="fas fa-cart-plus"></i> Pattern যোগ করুন</button></div>
         </div>
 
+        <!-- --- CATEGORY: MOSLA --- -->
         <div class="prod-card" data-cat="mosla">
-            <div class="image-box"><i class="fas fa-pepper-hot fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">খাঁটি গুড়ো মরিচ</div><div class="prod-price">৳ ৩২০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-11', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-11"><button class="qty-btn" onclick="changeQty('qty-11', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('খাঁটি গুড়ো মরিচ', 320, 'qty-11')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="mosla">
-            <div class="image-box"><i class="fas fa-stroopwafel fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">খাঁটি হলুদের গুড়ো</div><div class="prod-price">৳ ২৮০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-12', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-12"><button class="qty-btn" onclick="changeQty('qty-12', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('খাঁটি হলুদের গুড়ো', 280, 'qty-12')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="mosla">
-            <div class="image-box"><i class="fas fa-bottle-droplet fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">ঘানি ভাঙা সরিষার তেল</div><div class="prod-price">৳ ২৪০ / লিটার</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-13', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-13"><button class="qty-btn" onclick="changeQty('qty-13', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('খাঁটি সরিষার তেল', 240, 'qty-13')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="mosla">
-            <div class="image-box"><i class="fas fa-oil-can fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1620706857370-e1b977f7f13d?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1620706857370-e1b977f7f13d?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">রূপচাঁদা সয়াবিন তেল (৫ লি.)</div><div class="prod-price">৳ ৮৩০ / বোতল</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-14', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-14"><button class="qty-btn" onclick="changeQty('qty-14', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('সয়াবিন তেল ৫ লিটার', 830, 'qty-14')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="mosla">
-            <div class="image-box"><i class="fas fa-mugg-saucer fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">গাভী খাঁটি গাওয়া ঘি</div><div class="prod-price">৳ ১২৫০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-15', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-15"><button class="qty-btn" onclick="changeQty('qty-15', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('গাভী খাঁটি গাওয়া ঘি', 1250, 'qty-15')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="mosla">
-            <div class="image-box"><i class="fas fa-mortar-pestle fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1609142644260-8f645a342468?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">গরম মসলা প্যাক</div><div class="prod-price">৳ ১২০ / প্যাকেট</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-16', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-16"><button class="qty-btn" onclick="changeQty('qty-16', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('গরম মসলা প্যাক', 120, 'qty-16')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="mosla">
-            <div class="image-box"><i class="fas fa-bowl-rice fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1618260702958-9971206f8f16?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1618260702958-9971206f8f16?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">আস্ত জিরা (উন্নত মানের)</div><div class="prod-price">৳ ৪৫০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-17', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-17"><button class="qty-btn" onclick="changeQty('qty-17', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('আস্ত জিরা', 450, 'qty-17')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
 
+        <!-- --- CATEGORY: SNACKS --- -->
         <div class="prod-card" data-cat="snacks">
-            <div class="image-box"><i class="fas fa-mug-hot fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">শ্রীমঙ্গল প্রিমিয়াম ব্ল্যাক টি</div><div class="prod-price">৳ ৪২০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-18', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-18"><button class="qty-btn" onclick="changeQty('qty-18', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('শ্রীমঙ্গল চা পাতা', 420, 'qty-18')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="snacks">
-            <div class="image-box"><i class="fas fa-glass-water fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1558961313-7ef8cabebab5?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">ডিপ্লোমা গুঁড়ো দুধ (৪০০ গ্রাম)</div><div class="prod-price">৳ ৩৯০ / প্যাকেট</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-19', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-19"><button class="qty-btn" onclick="changeQty('qty-19', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('ডিপ্লোমা গুঁড়ো দুধ', 390, 'qty-19')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="snacks">
-            <div class="image-box"><i class="fas fa-wine-bottle fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1623860840534-12688b28233f?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1623860840534-12688b28233f?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">কোকা-কোলা অরিজিনাল (২ লি.)</div><div class="prod-price">৳ ১৬০ / বোতল</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-20', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-20"><button class="qty-btn" onclick="changeQty('qty-20', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('কোকা-কোলা ২ লিটার', 160, 'qty-20')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="snacks">
-            <div class="image-box"><i class="fas fa-bowl-food fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1613758249457-744b2ecd42bf?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1613758249457-744b2ecd42bf?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">ম্যাগি ২-মিনিট নুডলস (৮ প্যাক)</div><div class="prod-price">৳ ১৬০ / প্যাকেট</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-21', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-21"><button class="qty-btn" onclick="changeQty('qty-21', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('ম্যাগি নুডলস ৮ প্যাক', 160, 'qty-21')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="snacks">
-            <div class="image-box"><i class="fas fa-jar fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1599490659213-e2b9527bb087?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1599490659213-e2b9527bb087?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">প্রাণ টমেটো সস (১ কেজি)</div><div class="prod-price">৳ ১৮০ / বোতল</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-22', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-22"><button class="qty-btn" onclick="changeQty('qty-22', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('প্রাণ টমেটো সস ১ কেজি', 180, 'qty-22')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
 
+        <!-- --- CATEGORY: TOILETRIES --- -->
         <div class="prod-card" data-cat="toiletries">
-            <div class="image-box"><i class="fas fa-soap fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1608248597481-496100c80836?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">লাইফবয় হেলথ সাবান</div><div class="prod-price">৳ ৫০ / পিস</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-23', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-23"><button class="qty-btn" onclick="changeQty('qty-23', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('লাইফবয় সাবান', 50, 'qty-23')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="toiletries">
-            <div class="image-box"><i class="fas fa-pump-soap fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1556229010-aa3f7ff66b24?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1556229010-aa3f7ff66b24?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">হুইল পাউডার (১ কেজি প্যাক)</div><div class="prod-price">৳ ১৪৫ / প্যাকেট</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-24', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-24"><button class="qty-btn" onclick="changeQty('qty-24', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('হুইল পাউডার ১ কেজি', 145, 'qty-24')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="toiletries">
-            <div class="image-box"><i class="fas fa-spray-can fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">সানসিল্ক শ্যাম্পু (৩ মিনি প্যাক)</div><div class="prod-price">৳ ১০ / সেট</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-25', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-25"><button class="qty-btn" onclick="changeQty('qty-25', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('সানসিল্ক মিনি প্যাক', 10, 'qty-25')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="toiletries">
-            <div class="image-box"><i class="fas fa-pen-clip fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
-            <div class="prod-info"><div class="prod-title">ম্যাটাডোর জেল কলম</div><div class="prod-price">৳ ৬ / পিস</div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400&auto=format&fit=crop"></div>
+            <div class="prod-info"><div class="prod-title">ম্যাটাডোর জেল কলম</div><div class="prod-price">৳ 六 / পিস</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-26', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-26"><button class="qty-btn" onclick="changeQty('qty-26', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('ম্যাটাডোর জেল কলম', 6, 'qty-26')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="toiletries">
-            <div class="image-box"><i class="fas fa-book-open fallback-icon"></i><img class="prod-img" src="https://images.unsplash.com/photo-1604871000636-074fa5117945?w=400&auto=format&fit=crop" onerror="this.style.opacity=0"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1604871000636-074fa5117945?w=400&auto=format&fit=crop"></div>
             <div class="prod-info"><div class="prod-title">খাতা (বাংলা/ইংরেজি/গণিত)</div><div class="prod-price">৳ ৪৫ / পিস</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-27', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-27"><button class="qty-btn" onclick="changeQty('qty-27', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('স্টেশনারি খাতা', 45, 'qty-27')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
@@ -331,6 +324,7 @@
 
     </section>
 
+    <!-- Cart Receipt Section Layout -->
     <section class="cart-section" id="cart-box">
         <h2 style="color:var(--primary); text-align:center; font-weight:800; margin-bottom: 20px;"><i class="fas fa-receipt"></i> আপনার ক্যাশ মেমো (শপিং কার্ট)</h2>
         <table class="cart-table">
@@ -357,7 +351,7 @@
         <div class="bill-details">
             <div>পণ্যের মোট মূল্য: ৳ <span id="sub-total">০</span></div>
             <div>ডেলিভারি চার্জ: ৳ <span id="del-charge">০</span></div>
-            <div style="color: #27ae60; font-weight:700;">विशेष ডিসকাউন্ট: -৳ <span id="discount-amount">০</span></div>
+            <div style="color: #27ae60; font-weight:700;">বিশেষ ডিসকাউন্ট: -৳ <span id="discount-amount">০</span></div>
             <div class="total-price">সর্বমোট প্রদেয় বিল: ৳ <span id="total-amount">০</span></div>
         </div>
 
@@ -411,6 +405,7 @@
         <p>&copy; 2026 ফালাহ এন্টারপ্রাইজ। সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
 
+    <!-- LOGIC SCRIPT ENGINE -->
     <script>
         let cart = [];
         let deliveryCharge = 0;
