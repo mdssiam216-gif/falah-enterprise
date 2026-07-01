@@ -3,783 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ফালাহ এন্টারপ্রাইজ - প্রিমিয়াম অনলাইন গ্রোসারী</title>
-    <!-- Google Fonts -->
+    <title>ফালাহ এন্টারপ্রাইজ - ডিজিটাল গ্রোসারী শপ</title>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #1b4d3e;
             --primary-dark: #113327;
-            --accent: #ff6b6b;
-            --bg-light: #f8f9fa;
+            --accent: #27ae60;
+            --bg-light: #f7fafc;
             --text-main: #2d3748;
             --text-muted: #718096;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Hind Siliguri', 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
 
-        body {
-            font-family: 'Hind Siliguri', 'Poppins', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
+        .bismillah-bar { background-color: var(--primary-dark); color: #fff; text-align: center; padding: 10px; font-size: 1.2rem; font-weight: 600; border-bottom: 3px solid #f1c40f; }
+        
+        header { background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.04); position: sticky; top: 0; z-index: 1000; }
+        .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo-box { display: flex; align-items: center; gap: 12px; }
+        .logo-circle { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), #27ae60); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.6rem; font-weight: bold; }
+        .brand-title { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+        .cart-icon-btn { background: #edf2f7; padding: 10px 20px; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; font-family: inherit; display: flex; align-items: center; gap: 8px; }
 
-        /* Bismillah Bar */
-        .bismillah-bar {
-            background-color: var(--primary-dark);
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-bottom: 3px solid #f1c40f;
-        }
+        .hero { background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(17, 51, 39, 0.9)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; color: white; text-align: center; padding: 80px 20px; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; }
+        .hero h1 { font-size: 3.2rem; font-weight: 700; margin-bottom: 15px; }
+        .motto-card { max-width: 700px; margin: 25px auto 0 auto; background: rgba(255, 255, 255, 0.12); padding: 20px; border-radius: 12px; border-left: 5px solid #f1c40f; }
+        .motto-bn { font-size: 1.5rem; color: #ffeaa7; font-weight: 600; }
 
-        /* Navigation */
-        header {
-            background: #ffffff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        /* Filter Controls */
+        .controls { text-align: center; margin: 40px 0 20px 0; }
+        .filter-btn { background: white; border: 1px solid #cbd5e0; padding: 8px 18px; margin: 5px; border-radius: 20px; cursor: pointer; font-weight: 600; font-family: inherit; transition: 0.3s; }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
 
-        .navbar {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
+        /* Product Grid */
+        .grid-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .prod-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.02); border: 1px solid #edf2f7; display: flex; flex-direction: column; justify-content: space-between; }
+        .prod-img { width: 100%; height: 160px; object-fit: cover; }
+        .prod-info { padding: 15px; text-align: center; }
+        .prod-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; }
+        .prod-price { font-size: 1.2rem; color: #e74c3c; font-weight: 700; margin-bottom: 10px; }
+        
+        .quantity-select { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
+        .qty-input { width: 60px; text-align: center; padding: 4px; border: 1px solid #cbd5e0; border-radius: 4px; font-weight: bold; }
+        .add-cart-btn { background-color: var(--primary); color: white; border: none; padding: 8px 15px; border-radius: 6px; width: 100%; cursor: pointer; font-weight: 600; font-family: inherit; transition: 0.3s; }
+        .add-cart-btn:hover { background-color: var(--primary-dark); }
 
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        /* Cart Section Look */
+        .cart-section { max-width: 800px; margin: 60px auto; padding: 30px 20px; background: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-top: 5px solid #27ae60; }
+        .cart-table { width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left; }
+        .cart-table th, .cart-table td { padding: 12px; border-bottom: 1px solid #edf2f7; }
+        .total-price { text-align: right; font-size: 1.4rem; font-weight: 700; color: #e74c3c; margin-top: 15px; }
+        
+        /* Form Inputs */
+        .order-form { margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group input, .form-group textarea { padding: 10px; border: 1px solid #cbd5e0; border-radius: 8px; margin-top: 5px; font-family: inherit; }
+        .checkout-btn { grid-column: span 2; background-color: #27ae60; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 1.2rem; font-weight: 700; cursor: pointer; margin-top: 15px; transition: 0.3s; width: 100%; text-align: center; text-decoration: none; display: block;}
+        .checkout-btn:hover { background-color: #219150; }
 
-        .logo-circle {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary), #27ae60);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.6rem;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
+        .info-box { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .info-card { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.01); border-top: 4px solid var(--primary); }
+        .info-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 12px; }
 
-        .brand-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .phone-btn {
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .phone-btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Hero banner */
-        .hero {
-            background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(17, 51, 39, 0.9)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-        }
-
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .motto-card {
-            max-width: 700px;
-            margin: 30px auto 0 auto;
-            background: rgba(255, 255, 255, 0.12);
-            padding: 25px;
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
-            border-left: 5px solid #f1c40f;
-        }
-
-        .motto-en {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-
-        .motto-bn {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #ffeaa7;
-        }
-
-        /* Titles */
-        .sec-title {
-            text-align: center;
-            margin: 60px 0 15px 0;
-            font-size: 2.2rem;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .sec-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 45px;
-            font-size: 1.1rem;
-        }
-
-        /* Products Display Grid */
-        .grid-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
-
-        .prod-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-            border: 1px solid #edf2f7;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .prod-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-        }
-
-        .prod-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .prod-info {
-            padding: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
-
-        .prod-title {
-            font-size: 1.25rem;
-            color: var(--text-main);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .prod-desc {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-            height: 45px;
-            overflow: hidden;
-        }
-
-        .prod-price {
-            font-size: 1.25rem;
-            color: #e74c3c;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .order-now-btn {
-            display: block;
-            background-color: #27ae60;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .order-now-btn:hover {
-            background-color: #219150;
-        }
-
-        /* Testimonials */
-        .reviews-bg {
-            background-color: #edf2f7;
-            padding: 60px 0;
-            margin-top: 60px;
-        }
-
-        .review-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            text-align: center;
-        }
-
-        .stars {
-            color: #f1c40f;
-            margin-bottom: 10px;
-        }
-
-        /* Info Area */
-        .info-box {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .info-card {
-            background: white;
-            padding: 35px 25px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
-            border-top: 4px solid var(--primary);
-        }
-
-        .info-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: #a0aec0;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.3rem; }
-            .navbar { flex-direction: column; gap: 15px; }
-            .motto-bn { font-size: 1.3rem; }
-        }
+        footer { background: var(--primary-dark); color: #a0aec0; text-align: center; padding: 25px 20px; margin-top: 60px; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .navbar { flex-direction: column; gap: 15px; } .order-form { grid-template-columns: 1fr; } .checkout-btn { grid-column: span 1; } }
     </style>
 </head>
 <body>
 
-    <!-- Top Bar -->
-    <div class="bismillah-bar">
-        বিছমিল্লাহির রাহমানির রাহীম
-    </div>
+    <div class="bismillah-bar">বিছমিল্লাহির রাহমানির রাহীম</div>
 
-    <!-- Header -->
     <header>
         <div class="navbar">
             <div class="logo-box">
                 <div class="logo-circle">V</div>
                 <div class="brand-title">ফালাহ এন্টারপ্রাইজ</div>
             </div>
-            <a href="tel:01730824274" class="phone-btn">
-                <i class="fas fa-phone-alt"></i> ০১৭ ৩০৮২ ৪২৭৪
-            </a>
+            <button class="cart-icon-btn" onclick="scrollToCart()">
+                <i class="fas fa-shopping-basket" style="color:#27ae60;"></i> কার্ট (<span id="cart-count">০</span>)
+            </button>
         </div>
     </header>
 
-    <!-- Hero Banner -->
     <section class="hero">
         <h1>ফালাহ এন্টারপ্রাইজ</h1>
-        <p style="font-size: 1.2rem; color: #e2e8f0;">আপনার বিশ্বস্ত গ্রোসারী ও নিত্যপ্রয়োজনীয় পণ্যের দোকান</p>
-        
         <div class="motto-card">
-            <p class="motto-en">"Feeding the hungry is an act of worship."</p>
+            <p style="font-style: italic; margin-bottom: 5px;">"Feeding the hungry is an act of worship."</p>
             <p class="motto-bn">"ক্ষুধার্তকে খাবার খাওয়ানো ইবাদাত"</p>
         </div>
     </section>
 
-    <!-- PRODUCTS SECTIONS -->
-    <h2 class="sec-title">আমাদের পণ্য তালিকা</h2>
-    <p class="sec-subtitle">পছন্দের পণ্যের নিচে থাকা বাটনটি ক্লিক করে সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন</p>
-    
-    <section class="grid-container">
-        
-        <!-- Product 1 -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=400&q=80" alt="মসলা">
+    <!-- Category Filter Control Button -->
+    <div class="controls">
+        <button class="filter-btn active" onclick="filterItems('all')">সব পণ্য</button>
+        <button class="filter-btn" onclick="filterItems('mosla')">মসলা সামগ্রী</button>
+        <button class="filter-btn" onclick="filterItems('groceries')">চাল, ডাল ও তেল</button>
+        <button class="filter-btn" onclick="filterItems('others')">অন্যান্য সামগ্রী</button>
+    </div>
+
+    <!-- Product Grid -->
+    <section class="grid-container" id="product-list">
+        <!-- P1 -->
+        <div class="prod-card" data-cat="mosla">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=400&q=80">
             <div class="prod-info">
                 <div class="prod-title">খাঁটি গুড়ো মসলা প্যাকেজ</div>
-                <div class="prod-desc">১০০% কেমিক্যাল ও ভেজালমুক্ত নিজস্ব তত্ত্বাবধানে ভাঙানো মসলা।</div>
                 <div class="prod-price">৳ ২৫০ / কেজি</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20খাঁটি%20গুড়ো%20মসলা%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
+                <div class="quantity-select">
+                    <span>পরিমাণ (কেজি):</span>
+                    <input type="number" class="qty-input" value="1" min="1" id="qty-1">
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('খাঁটি গুড়ো মসলা', 250, 'qty-1')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button>
             </div>
         </div>
-
-        <!-- Product 2 -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=400&q=80" alt="চাল">
+        <!-- P2 -->
+        <div class="prod-card" data-cat="groceries">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=400&q=80">
             <div class="prod-info">
                 <div class="prod-title">প্রিমিয়াম নাজিরশাইল চাল</div>
-                <div class="prod-desc">ঝরঝরে এবং সুস্বাদু ভাতের জন্য প্রিমিয়াম কোয়ালিটির চাল।</div>
                 <div class="prod-price">৳ ৮৫ / কেজি</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20প্রিমিয়াম%20নাজিরশাইল%20চাল%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
+                <div class="quantity-select">
+                    <span>পরিমাণ (কেজি):</span>
+                    <input type="number" class="qty-input" value="1" min="1" id="qty-2">
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('নাজিরশাইল চাল', 85, 'qty-2')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button>
             </div>
         </div>
-
-        <!-- Product 3 -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=400&q=80" alt="তেল">
+        <!-- P3 -->
+        <div class="prod-card" data-cat="groceries">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=400&q=80">
             <div class="prod-info">
                 <div class="prod-title">খাঁটি সরিষার তেল (ঘানি)</div>
-                <div class="prod-desc">ঝাজালো স্বাদ ও অতুলনীয় সুগন্ধযুক্ত কাঠের ঘানি ভাঙা তেল।</div>
                 <div class="prod-price">৳ ২৪০ / লিটার</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20খাঁটি%20সরিষার%20তেল%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
+                <div class="quantity-select">
+                    <span>পরিমাণ (লিটার):</span>
+                    <input type="number" class="qty-input" value="1" min="1" id="qty-3">
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('খাঁটি সরিষার তেল', 240, 'qty-3')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button>
             </div>
         </div>
-
-        <!-- Product 4 -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&w=400&q=80" alt="ঘি">
+        <!-- P4 -->
+        <div class="prod-card" data-cat="others">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&w=400&q=80">
             <div class="prod-info">
                 <div class="prod-title">গাভী খাঁটি গাওয়া ঘি</div>
                 <div class="prod-price">৳ ১২৫০ / কেজি</div>
-                <div class="prod-desc">খাঁটি দুধের সর থেকে তৈরি চমৎকার সুগন্ধিযুক্ত গাওয়া ঘি।</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20গাভী%20খাঁটি%20গাওয়া%20ঘি%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
-            </div>
-        </div>
-
-        <!-- Product 5 (New) -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=400&q=80" alt="মধু">
-            <div class="prod-info">
-                <div class="prod-title">প্রাকৃতিক সুন্দরবনের মধু</div>
-                <div class="prod-desc">সম্পূর্ণ প্রাকৃতিক ও খাঁটি চাকের মধু, পুষ্টিগুণে ভরপুর।</div>
-                <div class="prod-price">৳ ৮৫০ / কেজি</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20প্রাকৃতিক%20সুন্দরবনের%20মধু%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
-            </div>
-        </div>
-
-        <!-- Product 6 (New) -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=400&q=80" alt="চা পাতা">
-            <div class="prod-info">
-                <div class="prod-title">প্রিমিয়াম ব্ল্যাক টি (চা পাতা)</div>
-                <div class="prod-desc">শ্রীমঙ্গলের বাগান থেকে সংগৃহীত কড়া লিকার ও চমৎকার স্বাদের চা।</div>
-                <div class="prod-price">৳ ৪২০ / কেজি</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20প্রিমিয়াম%20চা%20পাতা%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
-            </div>
-        </div>
-
-        <!-- Product 7 (New) -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1590543435777-62f4460a4f5d?auto=format&fit=crop&w=400&q=80" alt="ডাল">
-            <div class="prod-info">
-                <div class="prod-title">দেশী মসুর ডাল (বড় দানা)</div>
-                <div class="prod-desc">উন্নত জাতের পরিষ্কার ও ঝরঝরে দেশী মসুর ডাল।</div>
-                <div class="prod-price">৳ ১৪০ / কেজি</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20দেশী%20মসুর%20ডাল%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
-            </div>
-        </div>
-
-        <!-- Product 8 (New) -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1608248597481-496100c80836?auto=format&fit=crop&w=400&q=80" alt="সোডা ও সাবান">
-            <div class="prod-info">
-                <div class="prod-title">জেনারেল ও কসমেটিকস সামগ্রী</div>
-                <div class="prod-desc">দৈনন্দিন ব্যবহারের লাইফবয়, হুইল, ডিটারজেন্ট এবং টয়লেট্রিজ পণ্য।</div>
-                <div class="prod-price">৳ বাজার দর</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20নিত্যপ্রয়োজনীয়%20কসমেটিকস%20সামগ্রী%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> তালিকা পাঠান
-                </a>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="reviews-bg">
-        <h2 class="sec-title" style="margin-top: 0;">গ্রাহকদের মতামত</h2>
-        <div class="grid-container">
-            <div class="review-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"কুমিল্লার মধ্যে সবচেয়ে খাঁটি সরিষার তেল এবং মসলা এই ফালাহ এন্টারপ্রাইজে পাওয়া যায়। ব্যবহারও খুব ভালো।"</p>
-                <h5 style="margin-top: 10px; color: var(--primary);">- রাসেল আহমেদ</h5>
-            </div>
-            <div class="review-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"হোয়াটসঅ্যাপে নক করতেই তারা খুব দ্রুত রেসপন্স করেছে এবং সানমেডিকেল গলির ঠিকানায় এসে জিনিস দিয়ে গেছে। ধন্যবাদ!"</p>
-                <h5 style="margin-top: 10px; color: var(--primary);">- ইমতিয়াজ হাসান</h5>
+                <div class="quantity-select">
+                    <span>পরিমাণ (কেজি):</span>
+                    <input type="number" class="qty-input" value="1" min="1" id="qty-4">
+                </div>
+                <button class="add-cart-btn" onclick="addToCart('গাভী খাঁটি গাওয়া ঘি', 1250, 'qty-4')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT & INFO -->
-    <h2 class="sec-title">যোগাযোগের বিবরণ</h2>
+    <!-- Dynamic Cart & Digital Checkout Bill Section -->
+    <section class="cart-section" id="cart-box">
+        <h2 style="color:var(--primary); text-align:center;"><i class="fas fa-receipt"></i> আপনার শপিং কার্ট (ক্যাশ মেমো)</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>পণ্যের নাম</th>
+                    <th>পরিমাণ</th>
+                    <th>একক মূল্য</th>
+                    <th>মোট মূল্য</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <tr>
+                    <td colspan="4" style="text-align: center; color: var(--text-muted);">কার্ট খালি আছে। পণ্য যোগ করুন।</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total-price">সর্বমোট: ৳ <span id="total-amount">০</span></div>
+
+        <!-- Customer Delivery Information -->
+        <div class="order-form">
+            <div class="form-group">
+                <label>আপনার নাম *</label>
+                <input type="text" id="cust-name" placeholder="নাম লিখুন">
+            </div>
+            <div class="form-group">
+                <label>মোবাইল নম্বর *</label>
+                <input type="text" id="cust-phone" placeholder="মোবাইল নম্বর দিন">
+            </div>
+            <div class="form-group" style="grid-column: span 2;">
+                <label>ডেলিভারি ঠিকানা *</label>
+                <textarea id="cust-address" rows="3" placeholder="সম্পূর্ণ ঠিকানা লিখুন"></textarea>
+            </div>
+            <button class="checkout-btn" onclick="sendToWhatsApp()"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে অর্ডার সাবমিট করুন</button>
+        </div>
+    </section>
+
+    <!-- Footer Address Details -->
     <section class="info-box">
         <div class="info-card">
             <i class="fas fa-user-tie"></i>
             <h3>প্রোপ্রাইটর</h3>
-            <p style="font-size: 1.3rem; font-weight: bold; color: var(--primary);">মো: শফিকুল ইসলাম</p>
-            <p style="color: var(--text-muted); font-size: 1rem; margin-top: 5px;">মোবাইল: ০১৭৩০৮২৪২৭৪</p>
+            <p style="font-weight: bold; font-size:1.2rem; color: var(--primary);">মো: শফিকুল ইসলাম</p>
+            <p style="color:var(--text-muted);">০১৭৩০৮২৪২৭৪</p>
         </div>
         <div class="info-card">
             <i class="fas fa-map-marker-alt"></i>
             <h3>আমাদের ঠিকানা</h3>
-            <p>রেইসকোর্স, ফ্লাইওভার সংলগ্ন,</p>
-            <p>সানমেডিকেল গলি, কুমিল্লা।</p>
+            <p>রেইসকործ, ফ্লাইওভার সংলগ্ন, সানমেডিকেল গলি, কুমিল্লা।</p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 ফালাহ এন্টারপ্রাইজ। সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
 
-</body>
-</html>
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
+    <!-- INTERACTIVE JAVASCRIPT FOR ENGINE -->
+    <script>
+        let cart = [];
+
+        function filterItems(category) {
+            // Update Active buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            let items = document.querySelectorAll('.prod-card');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-cat') === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         }
 
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
+        function addToCart(name, price, qtyId) {
+            let qty = parseInt(document.getElementById(qtyId).value);
+            if(qty < 1 || isNaN(qty)) return alert('সঠিক পরিমাণ দিন');
+
+            // Check if already in cart
+            let existing = cart.find(item => item.name === name);
+            if(existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({ name, price, qty });
+            }
+            updateCartUI();
         }
 
-        .motto-card {
-            max-width: 700px;
-            margin: 30px auto 0 auto;
-            background: rgba(255, 255, 255, 0.12);
-            padding: 25px;
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
-            border-left: 5px solid #f1c40f;
+        function updateCartUI() {
+            let cartItems = document.getElementById('cart-items');
+            let totalAmount = document.getElementById('total-amount');
+            let cartCount = document.getElementById('cart-count');
+            
+            if(cart.length === 0) {
+                cartItems.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">কার্ট খালি আছে।</td></tr>`;
+                totalAmount.innerText = '০';
+                cartCount.innerText = '০';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            let totalItemsCount = 0;
+
+            cart.forEach(item => {
+                let subtotal = item.price * item.qty;
+                total += subtotal;
+                totalItemsCount += item.qty;
+                html += `<tr>
+                    <td><strong>${item.name}</strong></td>
+                    <td>${item.qty} টি/কেজি/লি.</td>
+                    <td>৳ ${item.price}</td>
+                    <td>৳ ${subtotal}</td>
+                </tr>`;
+            });
+
+            cartItems.innerHTML = html;
+            totalAmount.innerText = total;
+            cartCount.innerText = totalItemsCount;
         }
 
-        .motto-en {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
-            font-style: italic;
-            margin-bottom: 8px;
+        function scrollToCart() {
+            document.getElementById('cart-box').scrollIntoView({ behavior: 'smooth' });
         }
 
-        .motto-bn {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #ffeaa7;
+        function sendToWhatsApp() {
+            let name = document.getElementById('cust-name').value.trim();
+            let phone = document.getElementById('cust-phone').value.trim();
+            let address = document.getElementById('cust-address').value.trim();
+
+            if(!name || !phone || !address) return alert('অনুগ্রহ করে নাম, ফোন নম্বর ও ঠিকানা সম্পূর্ণ পূরণ করুন।');
+            if(cart.length === 0) return alert('আপনার কার্ট খালি! অনুগ্রহ করে পণ্য যোগ করুন।');
+
+            // Format Order Text for WhatsApp Message
+            let text = `*নতুন অর্ডার - ফালাহ এন্টারপ্রাইজ*\n\n`;
+            text += `*গ্রাহকের বিবরণ:*\n`;
+            text += `👤 নাম: ${name}\n`;
+            text += `📞 মোবাইল: ${phone}\n`;
+            text += `📍 ঠিকানা: ${address}\n\n`;
+            text += `*পণ্যের মেমো:*\n`;
+
+            let grandTotal = 0;
+            cart.forEach((item, index) => {
+                let sub = item.price * item.qty;
+                grandTotal += sub;
+                text += `${index + 1}. ${item.name} - ${item.qty} x ৳${item.price} = ৳${sub}\n`;
+            });
+
+            text += `\n*সর্বমোট বিল: ৳${grandTotal}*`;
+
+            // WhatsApp API URL Trigger
+            let url = `https://wa.me/8801730824274?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
         }
-
-        /* Titles */
-        .sec-title {
-            text-align: center;
-            margin: 60px 0 35px 0;
-            font-size: 2.2rem;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* Products Display Grid */
-        .grid-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 30px;
-        }
-
-        .prod-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-            border: 1px solid #edf2f7;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .prod-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-        }
-
-        .prod-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .prod-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .prod-title {
-            font-size: 1.35rem;
-            color: var(--text-main);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .prod-price {
-            font-size: 1.25rem;
-            color: #e74c3c;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .order-now-btn {
-            display: block;
-            background-color: #27ae60;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .order-now-btn:hover {
-            background-color: #219150;
-        }
-
-        /* Testimonials */
-        .reviews-bg {
-            background-color: #edf2f7;
-            padding: 60px 0;
-            margin-top: 60px;
-        }
-
-        .review-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            text-align: center;
-        }
-
-        .stars {
-            color: #f1c40f;
-            margin-bottom: 10px;
-        }
-
-        /* Info Area */
-        .info-box {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .info-card {
-            background: white;
-            padding: 35px 25px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
-            border-top: 4px solid var(--primary);
-        }
-
-        .info-card i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-dark);
-            color: #a0aec0;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.3rem; }
-            .navbar { flex-direction: column; gap: 15px; }
-            .motto-bn { font-size: 1.3rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Top Bar -->
-    <div class="bismillah-bar">
-        বিছমিল্লাহির রাহমানির রাহীম
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="navbar">
-            <div class="logo-box">
-                <div class="logo-circle">V</div>
-                <div class="brand-title">ফালাহ এন্টারপ্রাইজ</div>
-            </div>
-            <a href="tel:01730824274" class="phone-btn">
-                <i class="fas fa-phone-alt"></i> ০১৭ ৩০৮২ ৪২৭৪
-            </a>
-        </div>
-    </header>
-
-    <!-- Hero Banner -->
-    <section class="hero">
-        <h1>ফালাহ এন্টারপ্রাইজ</h1>
-        <p style="font-size: 1.2rem; color: #e2e8f0;">আপনার বিশ্বস্ত গ্রোসারী ও নিত্যপ্রয়োজনীয় পণ্যের দোকান</p>
-        
-        <div class="motto-card">
-            <p class="motto-en">"Feeding the hungry is an act of worship."</p>
-            <p class="motto-bn">"ক্ষুধার্তকে খাবার খাওয়ানো ইবাদাত"</p>
-        </div>
-    </section>
-
-    <!-- PRODUCTS SECTIONS -->
-    <h2 class="sec-title">আমাদের বিশেষ পণ্যসমূহ</h2>
-    <section class="grid-container">
-        
-        <!-- Product 1 -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=400&q=80" alt="মসলা">
-            <div class="prod-info">
-                <div class="prod-title">খাঁটি guṛo মসলা প্যাকেজ</div>
-                <div class="prod-price">৳ ২৫০ / কেজি</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20খাঁটি%20গুড়ো%20মসলা%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
-            </div>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=400&q=80" alt="চাল">
-            <div class="prod-info">
-                <div class="prod-title">প্রিমিয়াম নাজিরশাইল চাল</div>
-                <div class="prod-price">৳ ৮৫ / কেজি</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20প্রিমিয়াম%20নাজিরশাইল%20চাল%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
-            </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=400&q=80" alt="তেল">
-            <div class="prod-info">
-                <div class="prod-title">খাঁটি সরিষার তেল (ঘানি ভাঙা)</div>
-                <div class="prod-price">৳ ২৪০ / লিটার</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20খাঁটি%20সরিষার%20তেল%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
-            </div>
-        </div>
-
-        <!-- Product 4 -->
-        <div class="prod-card">
-            <img class="prod-img" src="https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&w=400&q=80" alt="ঘি">
-            <div class="prod-info">
-                <div class="prod-title">গাভী খাঁটি গাওয়া ঘি</div>
-                <div class="prod-price">৳ ১২৫০ / কেজি</div>
-                <a href="https://wa.me/8801730824274?text=আমি%20গাভী%20খাঁটি%20গাওয়া%20ঘি%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
-                </a>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="reviews-bg">
-        <h2 class="sec-title" style="margin-top: 0;">গ্রাহকদের মতামত</h2>
-        <div class="grid-container">
-            <div class="review-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"কুমিল্লার মধ্যে সবচেয়ে খাঁটি সরিষার তেল এবং মসলা এই ফালাহ এন্টারপ্রাইজে পাওয়া যায়। ব্যবহারও খুব ভালো।"</p>
-                <h5 style="margin-top: 10px; color: var(--primary);">- রাসেল আহমেদ</h5>
-            </div>
-            <div class="review-card">
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p>"হোয়াটসঅ্যাপে নক করতেই তারা খুব দ্রুত রেসপন্স করেছে এবং সানমেডিকেল গলির ঠিকানায় এসে জিনিস দিয়ে গেছে। ধন্যবাদ!"</p>
-                <h5 style="margin-top: 10px; color: var(--primary);">- ইমতিয়াজ হাসান</h5>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT & INFO -->
-    <h2 class="sec-title">যোগাযোগের বিবরণ</h2>
-    <section class="info-box">
-        <div class="info-card">
-            <i class="fas fa-user-tie"></i>
-            <h3>প্রোপ্রাইটর</h3>
-            <p style="font-size: 1.3rem; font-weight: bold; color: var(--primary);">মো: শফিকুল ইসলাম</p>
-            <p style="color: var(--text-muted); font-size: 1rem; margin-top: 5px;">মোবাইল: ০১৭৩০৮২৪২৭৪</p>
-        </div>
-        <div class="info-card">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>আমাদের ঠিকানা</h3>
-            <p>রেইসকোর্স, ফ্লাইওভার সংলগ্ন,</p>
-            <p>সানমেডিকেল গলি, কুমিল্লা।</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 ফালাহ এন্টারপ্রাইজ। সর্বস্বত্ব সংরক্ষিত।</p>
-    </footer>
-
+    </script>
 </body>
 </html>
