@@ -147,6 +147,382 @@
         /* Titles */
         .sec-title {
             text-align: center;
+            margin: 60px 0 15px 0;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .sec-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 45px;
+            font-size: 1.1rem;
+        }
+
+        /* Products Display Grid */
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .prod-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .prod-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .prod-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .prod-info {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .prod-title {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .prod-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            height: 45px;
+            overflow: hidden;
+        }
+
+        .prod-price {
+            font-size: 1.25rem;
+            color: #e74c3c;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .order-now-btn {
+            display: block;
+            background-color: #27ae60;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .order-now-btn:hover {
+            background-color: #219150;
+        }
+
+        /* Testimonials */
+        .reviews-bg {
+            background-color: #edf2f7;
+            padding: 60px 0;
+            margin-top: 60px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+
+        .stars {
+            color: #f1c40f;
+            margin-bottom: 10px;
+        }
+
+        /* Info Area */
+        .info-box {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            border-top: 4px solid var(--primary);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: #a0aec0;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .motto-bn { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="bismillah-bar">
+        বিছমিল্লাহির রাহমানির রাহীম
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="logo-box">
+                <div class="logo-circle">V</div>
+                <div class="brand-title">ফালাহ এন্টারপ্রাইজ</div>
+            </div>
+            <a href="tel:01730824274" class="phone-btn">
+                <i class="fas fa-phone-alt"></i> ০১৭ ৩০৮২ ৪২৭৪
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>ফালাহ এন্টারপ্রাইজ</h1>
+        <p style="font-size: 1.2rem; color: #e2e8f0;">আপনার বিশ্বস্ত গ্রোসারী ও নিত্যপ্রয়োজনীয় পণ্যের দোকান</p>
+        
+        <div class="motto-card">
+            <p class="motto-en">"Feeding the hungry is an act of worship."</p>
+            <p class="motto-bn">"ক্ষুধার্তকে খাবার খাওয়ানো ইবাদাত"</p>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTIONS -->
+    <h2 class="sec-title">আমাদের পণ্য তালিকা</h2>
+    <p class="sec-subtitle">পছন্দের পণ্যের নিচে থাকা বাটনটি ক্লিক করে সরাসরি হোয়াটসঅ্যাপে অর্ডার করুন</p>
+    
+    <section class="grid-container">
+        
+        <!-- Product 1 -->
+        <div class="prod-card">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=400&q=80" alt="মসলা">
+            <div class="prod-info">
+                <div class="prod-title">খাঁটি গুড়ো মসলা প্যাকেজ</div>
+                <div class="prod-desc">১০০% কেমিক্যাল ও ভেজালমুক্ত নিজস্ব তত্ত্বাবধানে ভাঙানো মসলা।</div>
+                <div class="prod-price">৳ ২৫০ / কেজি</div>
+                <a href="https://wa.me/8801730824274?text=আমি%20খাঁটি%20গুড়ো%20মসলা%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="prod-card">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=400&q=80" alt="চাল">
+            <div class="prod-info">
+                <div class="prod-title">প্রিমিয়াম নাজিরশাইল চাল</div>
+                <div class="prod-desc">ঝরঝরে এবং সুস্বাদু ভাতের জন্য প্রিমিয়াম কোয়ালিটির চাল।</div>
+                <div class="prod-price">৳ ৮৫ / কেজি</div>
+                <a href="https://wa.me/8801730824274?text=আমি%20প্রিমিয়াম%20নাজিরশাইল%20চাল%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="prod-card">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=400&q=80" alt="তেল">
+            <div class="prod-info">
+                <div class="prod-title">খাঁটি সরিষার তেল (ঘানি)</div>
+                <div class="prod-desc">ঝাজালো স্বাদ ও অতুলনীয় সুগন্ধযুক্ত কাঠের ঘানি ভাঙা তেল।</div>
+                <div class="prod-price">৳ ২৪০ / লিটার</div>
+                <a href="https://wa.me/8801730824274?text=আমি%20খাঁটি%20সরিষার%20তেল%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="prod-card">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1563822249548-9a72b6353cd1?auto=format&fit=crop&w=400&q=80" alt="ঘি">
+            <div class="prod-info">
+                <div class="prod-title">গাভী খাঁটি গাওয়া ঘি</div>
+                <div class="prod-price">৳ ১২৫০ / কেজি</div>
+                <div class="prod-desc">খাঁটি দুধের সর থেকে তৈরি চমৎকার সুগন্ধিযুক্ত গাওয়া ঘি।</div>
+                <a href="https://wa.me/8801730824274?text=আমি%20গাভী%20খাঁটি%20গাওয়া%20ঘি%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Product 5 (New) -->
+        <div class="prod-card">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=400&q=80" alt="মধু">
+            <div class="prod-info">
+                <div class="prod-title">প্রাকৃতিক সুন্দরবনের মধু</div>
+                <div class="prod-desc">সম্পূর্ণ প্রাকৃতিক ও খাঁটি চাকের মধু, পুষ্টিগুণে ভরপুর।</div>
+                <div class="prod-price">৳ ৮৫০ / কেজি</div>
+                <a href="https://wa.me/8801730824274?text=আমি%20প্রাকৃতিক%20সুন্দরবনের%20মধু%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Product 6 (New) -->
+        <div class="prod-card">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=400&q=80" alt="চা পাতা">
+            <div class="prod-info">
+                <div class="prod-title">প্রিমিয়াম ব্ল্যাক টি (চা পাতা)</div>
+                <div class="prod-desc">শ্রীমঙ্গলের বাগান থেকে সংগৃহীত কড়া লিকার ও চমৎকার স্বাদের চা।</div>
+                <div class="prod-price">৳ ৪২০ / কেজি</div>
+                <a href="https://wa.me/8801730824274?text=আমি%20প্রিমিয়াম%20চা%20পাতা%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Product 7 (New) -->
+        <div class="prod-card">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1590543435777-62f4460a4f5d?auto=format&fit=crop&w=400&q=80" alt="ডাল">
+            <div class="prod-info">
+                <div class="prod-title">দেশী মসুর ডাল (বড় দানা)</div>
+                <div class="prod-desc">উন্নত জাতের পরিষ্কার ও ঝরঝরে দেশী মসুর ডাল।</div>
+                <div class="prod-price">৳ ১৪০ / কেজি</div>
+                <a href="https://wa.me/8801730824274?text=আমি%20দেশী%20মসুর%20ডাল%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> অর্ডার করুন
+                </a>
+            </div>
+        </div>
+
+        <!-- Product 8 (New) -->
+        <div class="prod-card">
+            <img class="prod-img" src="https://images.unsplash.com/photo-1608248597481-496100c80836?auto=format&fit=crop&w=400&q=80" alt="সোডা ও সাবান">
+            <div class="prod-info">
+                <div class="prod-title">জেনারেল ও কসমেটিকস সামগ্রী</div>
+                <div class="prod-desc">দৈনন্দিন ব্যবহারের লাইফবয়, হুইল, ডিটারজেন্ট এবং টয়লেট্রিজ পণ্য।</div>
+                <div class="prod-price">৳ বাজার দর</div>
+                <a href="https://wa.me/8801730824274?text=আমি%20নিত্যপ্রয়োজনীয়%20কসমেটিকস%20সামগ্রী%20অর্ডার%20করতে%20চাই" class="order-now-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> তালিকা পাঠান
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews-bg">
+        <h2 class="sec-title" style="margin-top: 0;">গ্রাহকদের মতামত</h2>
+        <div class="grid-container">
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"কুমিল্লার মধ্যে সবচেয়ে খাঁটি সরিষার তেল এবং মসলা এই ফালাহ এন্টারপ্রাইজে পাওয়া যায়। ব্যবহারও খুব ভালো।"</p>
+                <h5 style="margin-top: 10px; color: var(--primary);">- রাসেল আহমেদ</h5>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"হোয়াটসঅ্যাপে নক করতেই তারা খুব দ্রুত রেসপন্স করেছে এবং সানমেডিকেল গলির ঠিকানায় এসে জিনিস দিয়ে গেছে। ধন্যবাদ!"</p>
+                <h5 style="margin-top: 10px; color: var(--primary);">- ইমতিয়াজ হাসান</h5>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & INFO -->
+    <h2 class="sec-title">যোগাযোগের বিবরণ</h2>
+    <section class="info-box">
+        <div class="info-card">
+            <i class="fas fa-user-tie"></i>
+            <h3>প্রোপ্রাইটর</h3>
+            <p style="font-size: 1.3rem; font-weight: bold; color: var(--primary);">মো: শফিকুল ইসলাম</p>
+            <p style="color: var(--text-muted); font-size: 1rem; margin-top: 5px;">মোবাইল: ০১৭৩০৮২৪২৭৪</p>
+        </div>
+        <div class="info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>আমাদের ঠিকানা</h3>
+            <p>রেইসকোর্স, ফ্লাইওভার সংলগ্ন,</p>
+            <p>সানমেডিকেল গলি, কুমিল্লা।</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ফালাহ এন্টারপ্রাইজ। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+</body>
+</html>
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .motto-card {
+            max-width: 700px;
+            margin: 30px auto 0 auto;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 25px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+            border-left: 5px solid #f1c40f;
+        }
+
+        .motto-en {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .motto-bn {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #ffeaa7;
+        }
+
+        /* Titles */
+        .sec-title {
+            text-align: center;
             margin: 60px 0 35px 0;
             font-size: 2.2rem;
             color: var(--primary);
