@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ফালাহ এন্টারপ্রাইজ</title>
+    <!-- Google Fonts for premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #e67e22;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 8px 10px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .contact-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-btn:hover {
+            background-color: #219150;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .quote-box {
+            max-width: 700px;
+            margin: 30px auto 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-left: 5px solid var(--secondary-color);
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+        }
+
+        .quote-en {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .quote-bn {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffeaa7;
+        }
+
+        /* Info Section */
+        .info-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card.accent {
+            border-top-color: var(--secondary-color);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Social Media Section */
+        .social-section {
+            background: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .social-section h2 {
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: opacity 0.3s;
+        }
+
+        .social-btn:hover {
+            opacity: 0.9;
+        }
+
+        .facebook { background-color: #1877f2; }
+        .whatsapp { background-color: #25d366; }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #bdc3c7;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .quote-en { font-size: 1.2rem; }
+            .quote-bn { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bismillah Bar -->
+    <div class="top-bar">
+        বিছমিল্লাহির রাহমানির রাহীম
+    </div>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo-area">
+                <!-- Logo Placeholder (V inside circle from image) -->
+                <div class="logo-placeholder">V</div>
+                <div class="brand-name">ফালাহ এন্টারপ্রাইজ</div>
+            </div>
+            <a href="tel:01730824274" class="contact-btn">
+                <i class="fas fa-phone-alt"></i> ০১৭৩০৮২৪২৭৪
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>ফালাহ এন্টারপ্রাইজ</h1>
+        
+        <!-- Beautiful Quote Container -->
+        <div class="quote-box">
+            <p class="quote-en">"Feeding the hungry is an act of worship."</p>
+            <p class="quote-bn">"ক্ষুধার্তকে খাবার খাওয়ানো ইবাদাত"</p>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="info-section">
+        <!-- Proprietor Card -->
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+            <h3>প্রোপ্রাইটর</h3>
+            <p><strong>মো: শফিকুল ইসলাম</strong></p>
+            <p style="margin-top: 10px; font-size: 0.95rem; color: #888;">আপনার যেকোনো প্রয়োজনে সরাসরি যোগাযোগ করুন।</p>
+        </div>
+
+        <!-- Address Card -->
+        <div class="card accent">
+            <div class="card-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <h3>আমাদের ঠিকানা</h3>
+            <p>রেইসকোর্স, ফ্লাইওভার সংলগ্ন,</p>
+            <p>সানমেডিকেল গলি, কুমিল্লা।</p>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <h2>আমাদের সাথে যুক্ত হোন</h2>
+        <div class="social-links">
+            <!-- Facebook Page Link (Replace '#' with actual link later) -->
+            <a href="#" class="social-btn facebook" target="_blank">
+                <i class="fab fa-facebook-f"></i> Facebook Page
+            </a>
+            <!-- WhatsApp Link -->
+            <a href="https://wa.me/8801730824274" class="social-btn whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 ফালাহ এন্টারপ্রাইজ। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+</body>
+</html>
