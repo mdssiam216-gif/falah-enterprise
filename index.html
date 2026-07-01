@@ -45,11 +45,9 @@
         .brand-title { font-size: 1.8rem; font-weight: 800; background: linear-gradient(to right, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
         .nav-right { display: flex; align-items: center; gap: 20px; }
-        .theme-toggle { background: var(--bg-light); border: 1px solid var(--border-color); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; color: var(--text-main); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        .theme-toggle:hover { transform: rotate(30deg); background: var(--border-color); }
+        .theme-toggle { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-main); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; }
         .cart-icon-btn { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: white; padding: 10px 24px; border-radius: 30px; border: none; cursor: pointer; font-weight: 700; font-family: inherit; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); }
-        .cart-icon-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4); }
-
+        
         .hero { background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(27, 77, 62, 0.85)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; color: white; text-align: center; padding: 80px 20px; position: relative; overflow: hidden; }
         .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 15px; animation: fadeInDown 1s; }
         .motto-card { max-width: 650px; margin: 25px auto 0 auto; background: rgba(255, 255, 255, 0.1); border-radius: var(--radius); padding: 20px; border-left: 6px solid #f1c40f; backdrop-filter: blur(5px); }
@@ -86,8 +84,12 @@
         .cart-section { max-width: 850px; margin: 60px auto; padding: 40px 25px; background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border-color); border-top: 6px solid #27ae60; position: relative; }
         .cart-table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; }
         .cart-table th { background: var(--bg-light); color: var(--text-main); font-weight: 700; padding: 15px 12px; }
-        .cart-table td { padding: 15px 12px; border-bottom: 1px solid var(--border-color); }
+        .cart-table td { padding: 15px 12px; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
         
+        /* Remove Button Design */
+        .remove-btn { background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 1.1rem; padding: 5px 10px; border-radius: 50%; }
+        .remove-btn:hover { background: #fee2e2; color: #c0392b; transform: scale(1.1); }
+
         .coupon-box { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
         .coupon-input { padding: 10px 15px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main); border-radius: 30px; font-family: inherit; width: 220px; }
         .coupon-btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: 700; }
@@ -165,19 +167,19 @@
             <button class="add-cart-btn" onclick="addToCart('নাজিরশাইল চাল', 85, 'qty-1')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1590543435777-62f4460a4f5d?auto=format&fit=crop&w=400&q=80"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1547058881-aa0edd92aab3?auto=format&fit=crop&w=400&q=80"></div>
             <div class="prod-info"><div class="prod-title">দেশী মসুর ডাল (বড় দানা)</div><div class="prod-price">৳ ১৪০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-2', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-2"><button class="qty-btn" onclick="changeQty('qty-2', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('দেশী মসুর ডাল', 140, 'qty-2')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=400&q=80"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1581441363689-1f3c3c414635?auto=format&fit=crop&w=400&q=80"></div>
             <div class="prod-info"><div class="prod-title">সাদা চিনি (ফ্রেশ)</div><div class="prod-price">৳ ১৩৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-3', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-3"><button class="qty-btn" onclick="changeQty('qty-3', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('সাদা চিনি', 135, 'qty-3')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="mosla">
-            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=400&q=80"></div>
+            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=400&q=80"></div>
             <div class="prod-info"><div class="prod-title">খাঁটি গুড়ো মরিচ</div><div class="prod-price">৳ ৩২০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-4', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-4"><button class="qty-btn" onclick="changeQty('qty-4', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('খাঁটি গুড়ো মরিচ', 320, 'qty-4')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
@@ -199,11 +201,12 @@
                     <th>পরিমাণ</th>
                     <th>মূল্য</th>
                     <th>মোট টাকা</th>
+                    <th>বাদ দিন</th>
                 </tr>
             </thead>
             <tbody id="cart-items">
                 <tr>
-                    <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 20px;">আপনার কার্টে কোনো পণ্য নেই।</td>
+                    <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 20px;">আপনার কার্টে কোনো পণ্য নেই।</td>
                 </tr>
             </tbody>
         </table>
@@ -241,7 +244,7 @@
                 <label>সম্পূর্ণ ঠিকানা *</label>
                 <input type="text" id="cust-address" placeholder="গ্রাম/রোড, থানা, জেলা">
             </div>
-            <button class="checkout-btn" onclick="sendToWhatsApp()"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে অর্ডার সাবমিট করুন</button>
+            <button class="checkout-btn" onclick="sendToWhatsApp()"><i class="fab fa-whatsapp"></i> অর্ডার সাবমিট করুন</button>
         </div>
     </section>
 
@@ -297,6 +300,7 @@
             setTimeout(() => t.classList.remove('show'), 2000);
         }
 
+        // Live Search
         function searchProducts() {
             let input = document.getElementById('search-input').value.toLowerCase();
             let cards = document.querySelectorAll('.prod-card');
@@ -306,6 +310,7 @@
             });
         }
 
+        // Category Filter
         function filterItems(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
@@ -315,6 +320,7 @@
             });
         }
 
+        // Add to Cart
         function addToCart(name, price, qtyId) {
             let qty = parseInt(document.getElementById(qtyId).value);
             if(qty < 1 || isNaN(qty)) return alert('সঠিক পরিমাণ দিন');
@@ -323,6 +329,14 @@
             else cart.push({ name, price, qty });
             
             showToast(`${name} কার্টে যোগ করা হয়েছে!`);
+            updateCartUI();
+        }
+
+        // REMOVE FROM CART (নতুন ফিক্সড ফিচার)
+        function removeFromCart(index) {
+            let removedItemName = cart[index].name;
+            cart.splice(index, 1);
+            showToast(`${removedItemName} কার্ট থেকে বাদ দেওয়া হয়েছে!`);
             updateCartUI();
         }
 
@@ -345,6 +359,7 @@
             updateCartUI();
         }
 
+        // Cart Engine Re-render with Remove Button
         function updateCartUI() {
             let cartItems = document.getElementById('cart-items');
             let subTotalSpan = document.getElementById('sub-total');
@@ -354,16 +369,22 @@
             let floatingCount = document.getElementById('floating-count');
             
             if(cart.length === 0) {
-                cartItems.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding:20px;">আপনার কার্ট খালি।</td></tr>`;
+                cartItems.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding:20px;">আপনার কার্ট খালি।</td></tr>`;
                 subTotalSpan.innerText = '০'; totalAmount.innerText = '০'; cartCount.innerText = '০'; floatingCount.innerText = '০'; discountSpan.innerText = '০';
                 discount = 0; return;
             }
 
             let html = ''; let subtotal = 0; let totalItemsCount = 0;
-            cart.forEach(item => {
+            cart.forEach((item, index) => {
                 let sub = item.price * item.qty;
                 subtotal += sub; totalItemsCount += item.qty;
-                html += `<tr><td><strong>${item.name}</strong></td><td>${item.qty} টি/কেজি</td><td>৳ ${item.price}</td><td>৳ ${sub}</td></tr>`;
+                html += `<tr>
+                    <td><strong>${item.name}</strong></td>
+                    <td>${item.qty} কেজি/লিটার</td>
+                    <td>৳ ${item.price}</td>
+                    <td>৳ ${sub}</td>
+                    <td><button class="remove-btn" onclick="removeFromCart(${index})" title="বাদ দিন"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>`;
             });
 
             cartItems.innerHTML = html; subTotalSpan.innerText = subtotal; discountSpan.innerText = discount; cartCount.innerText = totalItemsCount; floatingCount.innerText = totalItemsCount;
