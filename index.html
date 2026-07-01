@@ -86,7 +86,6 @@
         .cart-table th { background: var(--bg-light); color: var(--text-main); font-weight: 700; padding: 15px 12px; }
         .cart-table td { padding: 15px 12px; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
         
-        /* Remove Button Design */
         .remove-btn { background: none; border: none; color: #e74c3c; cursor: pointer; font-size: 1.1rem; padding: 5px 10px; border-radius: 50%; }
         .remove-btn:hover { background: #fee2e2; color: #c0392b; transform: scale(1.1); }
 
@@ -173,7 +172,7 @@
             <button class="add-cart-btn" onclick="addToCart('দেশী মসুর ডাল', 140, 'qty-2')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
         <div class="prod-card" data-cat="nito">
-            <div class="image-box"><img class="prod-img" src="https://images.unsplash.com/photo-1581441363689-1f3c3c414635?auto=format&fit=crop&w=400&q=80"></div>
+            <div class="image-box"><img class="prod-img" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/cover-20220331175937.jpg"></div>
             <div class="prod-info"><div class="prod-title">সাদা চিনি (ফ্রেশ)</div><div class="prod-price">৳ ১৩৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-3', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-3"><button class="qty-btn" onclick="changeQty('qty-3', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('সাদা চিনি', 135, 'qty-3')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
@@ -300,7 +299,6 @@
             setTimeout(() => t.classList.remove('show'), 2000);
         }
 
-        // Live Search
         function searchProducts() {
             let input = document.getElementById('search-input').value.toLowerCase();
             let cards = document.querySelectorAll('.prod-card');
@@ -310,17 +308,15 @@
             });
         }
 
-        // Category Filter
         function filterItems(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if(event && event.target) event.target.classList.add('active');
             let items = document.querySelectorAll('.prod-card');
             items.forEach(item => {
                 item.style.display = (category === 'all' || item.getAttribute('data-cat') === category) ? 'flex' : 'none';
             });
         }
 
-        // Add to Cart
         function addToCart(name, price, qtyId) {
             let qty = parseInt(document.getElementById(qtyId).value);
             if(qty < 1 || isNaN(qty)) return alert('সঠিক পরিমাণ দিন');
@@ -332,7 +328,6 @@
             updateCartUI();
         }
 
-        // REMOVE FROM CART (নতুন ফিক্সড ফিচার)
         function removeFromCart(index) {
             let removedItemName = cart[index].name;
             cart.splice(index, 1);
@@ -359,7 +354,6 @@
             updateCartUI();
         }
 
-        // Cart Engine Re-render with Remove Button
         function updateCartUI() {
             let cartItems = document.getElementById('cart-items');
             let subTotalSpan = document.getElementById('sub-total');
