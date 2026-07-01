@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ফালাহ এন্টারপ্রাইজ - ডিজিটাল গ্রোসারী শপ</title>
+    <title>ফালাহ এন্টারপ্রাইজ - মেগা ডিজিটাল শপ</title>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -13,60 +13,84 @@
             --primary-dark: #113327;
             --accent: #27ae60;
             --bg-light: #f7fafc;
+            --bg-card: #ffffff;
             --text-main: #2d3748;
             --text-muted: #718096;
+            --border-color: #edf2f7;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Dark Mode Colors */
+        [data-theme="dark"] {
+            --bg-light: #1a202c;
+            --bg-card: #2d3748;
+            --text-main: #f7fafc;
+            --text-muted: #a0aec0;
+            --border-color: #4a5568;
+            --primary: #27ae60;
+            --primary-dark: #1b4d3e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.3s, color 0.3s; }
         body { font-family: 'Hind Siliguri', 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
 
         .bismillah-bar { background-color: var(--primary-dark); color: #fff; text-align: center; padding: 10px; font-size: 1.2rem; font-weight: 600; border-bottom: 3px solid #f1c40f; }
         
-        header { background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.04); position: sticky; top: 0; z-index: 1000; }
+        header { background: var(--bg-card); box-shadow: 0 4px 15px rgba(0,0,0,0.04); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
         .navbar { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
         .logo-box { display: flex; align-items: center; gap: 12px; }
-        .logo-circle { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), #27ae60); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.6rem; font-weight: bold; }
+        .logo-circle { width: 48px; height: 48px; background: linear-gradient(135deg, #1b4d3e, #27ae60); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.6rem; font-weight: bold; }
         .brand-title { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
-        .cart-icon-btn { background: #edf2f7; padding: 10px 20px; border-radius: 30px; border: none; cursor: pointer; font-weight: 600; font-family: inherit; display: flex; align-items: center; gap: 8px; }
+        
+        .nav-right { display: flex; align-items: center; gap: 15px; }
+        .theme-toggle { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-main); }
+        .cart-icon-btn { background: var(--bg-light); padding: 10px 20px; border-radius: 30px; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; font-family: inherit; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
 
-        .hero { background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(17, 51, 39, 0.9)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; color: white; text-align: center; padding: 80px 20px; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; }
-        .hero h1 { font-size: 3.2rem; font-weight: 700; margin-bottom: 15px; }
-        .motto-card { max-width: 700px; margin: 25px auto 0 auto; background: rgba(255, 255, 255, 0.12); padding: 20px; border-radius: 12px; border-left: 5px solid #f1c40f; }
+        .hero { background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(17, 51, 39, 0.9)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; color: white; text-align: center; padding: 60px 20px; }
+        .motto-card { max-width: 700px; margin: 20px auto 0 auto; background: rgba(255, 255, 255, 0.12); padding: 15px; border-radius: 12px; border-left: 5px solid #f1c40f; }
         .motto-bn { font-size: 1.5rem; color: #ffeaa7; font-weight: 600; }
 
-        /* Filter Controls */
-        .controls { text-align: center; margin: 40px 0 20px 0; }
-        .filter-btn { background: white; border: 1px solid #cbd5e0; padding: 8px 18px; margin: 5px; border-radius: 20px; cursor: pointer; font-weight: 600; font-family: inherit; transition: 0.3s; }
+        /* Search & Filter Controls */
+        .search-container { max-width: 500px; margin: 30px auto 10px auto; padding: 0 20px; position: relative; }
+        .search-bar { width: 100%; padding: 12px 40px 12px 15px; border-radius: 30px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-main); font-family: inherit; font-size: 1rem; }
+        .search-container i { position: absolute; right: 35px; top: 15px; color: var(--text-muted); }
+
+        .controls { text-align: center; margin-bottom: 30px; }
+        .filter-btn { background: var(--bg-card); border: 1px solid var(--border-color); padding: 8px 18px; margin: 5px; border-radius: 20px; cursor: pointer; font-weight: 600; font-family: inherit; color: var(--text-main); }
         .filter-btn.active, .filter-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
 
         /* Product Grid */
         .grid-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-        .prod-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.02); border: 1px solid #edf2f7; display: flex; flex-direction: column; justify-content: space-between; }
+        .prod-card { background: var(--bg-card); border-radius: 16px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.02); border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; }
         .prod-img { width: 100%; height: 160px; object-fit: cover; }
         .prod-info { padding: 15px; text-align: center; }
         .prod-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; }
         .prod-price { font-size: 1.2rem; color: #e74c3c; font-weight: 700; margin-bottom: 10px; }
         
         .quantity-select { display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 12px; }
-        .qty-input { width: 60px; text-align: center; padding: 4px; border: 1px solid #cbd5e0; border-radius: 4px; font-weight: bold; }
-        .add-cart-btn { background-color: var(--primary); color: white; border: none; padding: 8px 15px; border-radius: 6px; width: 100%; cursor: pointer; font-weight: 600; font-family: inherit; transition: 0.3s; }
-        .add-cart-btn:hover { background-color: var(--primary-dark); }
+        .qty-input { width: 60px; text-align: center; padding: 4px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main); border-radius: 4px; font-weight: bold; }
+        .add-cart-btn { background-color: var(--primary); color: white; border: none; padding: 8px 15px; border-radius: 6px; width: 100%; cursor: pointer; font-weight: 600; font-family: inherit; }
 
-        /* Cart Section Look */
-        .cart-section { max-width: 800px; margin: 60px auto; padding: 30px 20px; background: white; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-top: 5px solid #27ae60; }
+        /* Cart & Receipt Section */
+        .cart-section { max-width: 800px; margin: 60px auto; padding: 30px 20px; background: var(--bg-card); border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid var(--border-color); border-top: 5px solid #27ae60; }
         .cart-table { width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left; }
-        .cart-table th, .cart-table td { padding: 12px; border-bottom: 1px solid #edf2f7; }
-        .total-price { text-align: right; font-size: 1.4rem; font-weight: 700; color: #e74c3c; margin-top: 15px; }
+        .cart-table th, .cart-table td { padding: 12px; border-bottom: 1px solid var(--border-color); }
         
+        .bill-details { margin-top: 20px; text-align: right; font-size: 1.1rem; display: flex; flex-direction: column; gap: 5px; }
+        .total-price { font-size: 1.4rem; font-weight: 700; color: #e74c3c; border-top: 1px dashed var(--border-color); padding-top: 10px; }
+        
+        /* Coupon Box */
+        .coupon-box { display: flex; gap: 10px; margin-top: 15px; justify-content: flex-end; }
+        .coupon-input { padding: 8px 12px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main); border-radius: 6px; font-family: inherit; }
+        .coupon-btn { background: var(--primary); color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: 600; font-family: inherit; }
+
         /* Form Inputs */
         .order-form { margin-top: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .form-group { display: flex; flex-direction: column; }
-        .form-group input, .form-group textarea { padding: 10px; border: 1px solid #cbd5e0; border-radius: 8px; margin-top: 5px; font-family: inherit; }
-        .checkout-btn { grid-column: span 2; background-color: #27ae60; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 1.2rem; font-weight: 700; cursor: pointer; margin-top: 15px; transition: 0.3s; width: 100%; text-align: center; text-decoration: none; display: block;}
-        .checkout-btn:hover { background-color: #219150; }
+        .form-group input, .form-group textarea, .form-group select { padding: 10px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main); border-radius: 8px; margin-top: 5px; font-family: inherit; }
+        .checkout-btn { grid-column: span 2; background-color: #27ae60; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 1.2rem; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; display: block;}
 
         .info-box { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .info-card { background: white; padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.01); border-top: 4px solid var(--primary); }
+        .info-card { background: var(--bg-card); padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.01); border: 1px solid var(--border-color); border-top: 4px solid var(--primary); }
         .info-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 12px; }
 
         footer { background: var(--primary-dark); color: #a0aec0; text-align: center; padding: 25px 20px; margin-top: 60px; }
@@ -83,9 +107,12 @@
                 <div class="logo-circle">V</div>
                 <div class="brand-title">ফালাহ এন্টারপ্রাইজ</div>
             </div>
-            <button class="cart-icon-btn" onclick="scrollToCart()">
-                <i class="fas fa-shopping-basket" style="color:#27ae60;"></i> কার্ট (<span id="cart-count">০</span>)
-            </button>
+            <div class="nav-right">
+                <button class="theme-toggle" onclick="toggleTheme()" title="ডার্ক/লাইট মোড"><i class="fas fa-moon"></i></button>
+                <button class="cart-icon-btn" onclick="scrollToCart()">
+                    <i class="fas fa-shopping-basket" style="color:#27ae60;"></i> কার্ট (<span id="cart-count">০</span>)
+                </button>
+            </div>
         </div>
     </header>
 
@@ -97,7 +124,13 @@
         </div>
     </section>
 
-    <!-- Category Filter Control Button -->
+    <!-- LIVE SEARCH BAR -->
+    <div class="search-container">
+        <input type="text" class="search-bar" id="search-input" onkeyup="searchProducts()" placeholder="পণ্য খুঁজুন (যেমন: চাল, তেল, মসলা)...">
+        <i class="fas fa-search"></i>
+    </div>
+
+    <!-- Category Filter Controls -->
     <div class="controls">
         <button class="filter-btn active" onclick="filterItems('all')">সব পণ্য</button>
         <button class="filter-btn" onclick="filterItems('mosla')">মসলা সামগ্রী</button>
@@ -163,7 +196,7 @@
 
     <!-- Dynamic Cart & Digital Checkout Bill Section -->
     <section class="cart-section" id="cart-box">
-        <h2 style="color:var(--primary); text-align:center;"><i class="fas fa-receipt"></i> আপনার শপিং কার্ট (ক্যাশ মেমো)</h2>
+        <h2 style="color:var(--primary); text-align:center; margin-bottom: 15px;"><i class="fas fa-receipt"></i> শপিং কার্ট ও মেমো</h2>
         <table class="cart-table">
             <thead>
                 <tr>
@@ -175,13 +208,26 @@
             </thead>
             <tbody id="cart-items">
                 <tr>
-                    <td colspan="4" style="text-align: center; color: var(--text-muted);">কার্ট খালি আছে। পণ্য যোগ করুন।</td>
+                    <td colspan="4" style="text-align: center; color: var(--text-muted);">কার্ট খালি আছে।</td>
                 </tr>
             </tbody>
         </table>
-        <div class="total-price">সর্বমোট: ৳ <span id="total-amount">০</span></div>
 
-        <!-- Customer Delivery Information -->
+        <!-- Coupon System View -->
+        <div class="coupon-box">
+            <input type="text" id="coupon-code" class="coupon-input" placeholder="কুপন কোড (WELCOME50)">
+            <button class="coupon-btn" onclick="applyCoupon()">প্রয়োগ করুন</button>
+        </div>
+
+        <!-- Automatic Delivery Charge Calculation -->
+        <div class="bill-details">
+            <div>পণ্য মূল্য: ৳ <span id="sub-total">০</span></div>
+            <div>ডেলিভারি চার্জ: ৳ <span id="del-charge">০</span></div>
+            <div style="color: #27ae60;" id="discount-div">ডিসকাউন্ট: ৳ <span id="discount-amount">০</span></div>
+            <div class="total-price">সর্বমোট বিল: ৳ <span id="total-amount">০</span></div>
+        </div>
+
+        <!-- Customer Delivery Information Form -->
         <div class="order-form">
             <div class="form-group">
                 <label>আপনার নাম *</label>
@@ -191,9 +237,17 @@
                 <label>মোবাইল নম্বর *</label>
                 <input type="text" id="cust-phone" placeholder="মোবাইল নম্বর দিন">
             </div>
-            <div class="form-group" style="grid-column: span 2;">
-                <label>ডেলিভারি ঠিকানা *</label>
-                <textarea id="cust-address" rows="3" placeholder="সম্পূর্ণ ঠিকানা লিখুন"></textarea>
+            <div class="form-group">
+                <label>ডেলিভারি এলাকা *</label>
+                <select id="cust-area" onchange="updateDeliveryCharge()">
+                    <option value="0">--- এলাকা সিলেক্ট করুন ---</option>
+                    <option value="50">কুমিল্লা সিটির ভেতরে (৳ ৫০)</option>
+                    <option value="120">কুমিল্লার বাইরে (৳ ১২০)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>সম্পূর্ণ ঠিকানা *</label>
+                <input type="text" id="cust-address" placeholder="গ্রাম/রোড, থানা, জেলা">
             </div>
             <button class="checkout-btn" onclick="sendToWhatsApp()"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপে অর্ডার সাবমিট করুন</button>
         </div>
@@ -210,7 +264,7 @@
         <div class="info-card">
             <i class="fas fa-map-marker-alt"></i>
             <h3>আমাদের ঠিকানা</h3>
-            <p>রেইসকործ, ফ্লাইওভার সংলগ্ন, সানমেডিকেল গলি, কুমিল্লা।</p>
+            <p>রেইসকোর্স, ফ্লাইওভার সংলগ্ন, সানমেডিকেল গলি, কুমিল্লা।</p>
         </div>
     </section>
 
@@ -221,12 +275,36 @@
     <!-- INTERACTIVE JAVASCRIPT FOR ENGINE -->
     <script>
         let cart = [];
+        let deliveryCharge = 0;
+        let discount = 0;
+
+        // Dark/Light Theme Feature
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            const icon = document.querySelector('.theme-toggle i');
+            icon.className = targetTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Live Product Search Feature
+        function searchProducts() {
+            let input = document.getElementById('search-input').value.toLowerCase();
+            let cards = document.querySelectorAll('.prod-card');
+            
+            cards.forEach(card => {
+                let title = card.querySelector('.prod-title').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
 
         function filterItems(category) {
-            // Update Active buttons
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-
             let items = document.querySelectorAll('.prod-card');
             items.forEach(item => {
                 if (category === 'all' || item.getAttribute('data-cat') === category) {
@@ -241,7 +319,6 @@
             let qty = parseInt(document.getElementById(qtyId).value);
             if(qty < 1 || isNaN(qty)) return alert('সঠিক পরিমাণ দিন');
 
-            // Check if already in cart
             let existing = cart.find(item => item.name === name);
             if(existing) {
                 existing.qty += qty;
@@ -251,37 +328,67 @@
             updateCartUI();
         }
 
+        function updateDeliveryCharge() {
+            let areaSelect = document.getElementById('cust-area');
+            deliveryCharge = parseInt(areaSelect.value);
+            document.getElementById('del-charge').innerText = deliveryCharge;
+            updateCartUI();
+        }
+
+        function applyCoupon() {
+            let code = document.getElementById('coupon-code').value.trim();
+            if(cart.length === 0) return alert('আগে কার্টে পণ্য যোগ করুন');
+            
+            if(code === 'WELCOME50') {
+                discount = 50;
+                alert('কুপন সফল! ৫০ টাকা ছাড় দেওয়া হয়েছে।');
+            } else {
+                discount = 0;
+                alert('ভুল কুপন কোড');
+            }
+            updateCartUI();
+        }
+
         function updateCartUI() {
             let cartItems = document.getElementById('cart-items');
+            let subTotalSpan = document.getElementById('sub-total');
+            let discountSpan = document.getElementById('discount-amount');
             let totalAmount = document.getElementById('total-amount');
             let cartCount = document.getElementById('cart-count');
             
             if(cart.length === 0) {
                 cartItems.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">কার্ট খালি আছে।</td></tr>`;
+                subTotalSpan.innerText = '০';
                 totalAmount.innerText = '০';
                 cartCount.innerText = '০';
+                discountSpan.innerText = '০';
+                discount = 0;
                 return;
             }
 
             let html = '';
-            let total = 0;
+            let subtotal = 0;
             let totalItemsCount = 0;
 
             cart.forEach(item => {
-                let subtotal = item.price * item.qty;
-                total += subtotal;
+                let sub = item.price * item.qty;
+                subtotal += sub;
                 totalItemsCount += item.qty;
                 html += `<tr>
                     <td><strong>${item.name}</strong></td>
-                    <td>${item.qty} টি/কেজি/লি.</td>
+                    <td>${item.qty} টি/কেজি</td>
                     <td>৳ ${item.price}</td>
-                    <td>৳ ${subtotal}</td>
+                    <td>৳ ${sub}</td>
                 </tr>`;
             });
 
             cartItems.innerHTML = html;
-            totalAmount.innerText = total;
+            subTotalSpan.innerText = subtotal;
+            discountSpan.innerText = discount;
             cartCount.innerText = totalItemsCount;
+            
+            let finalTotal = (subtotal + deliveryCharge) - discount;
+            totalAmount.innerText = finalTotal < 0 ? 0 : finalTotal;
         }
 
         function scrollToCart() {
@@ -291,29 +398,30 @@
         function sendToWhatsApp() {
             let name = document.getElementById('cust-name').value.trim();
             let phone = document.getElementById('cust-phone').value.trim();
+            let area = document.getElementById('cust-area').value;
             let address = document.getElementById('cust-address').value.trim();
 
-            if(!name || !phone || !address) return alert('অনুগ্রহ করে নাম, ফোন নম্বর ও ঠিকানা সম্পূর্ণ পূরণ করুন।');
-            if(cart.length === 0) return alert('আপনার কার্ট খালি! অনুগ্রহ করে পণ্য যোগ করুন।');
+            if(!name || !phone || !address || area === "0") return alert('অনুগ্রহ করে সব তথ্য সঠিকভাবে পূরণ করুন।');
+            if(cart.length === 0) return alert('আপনার কার্ট খালি!');
 
-            // Format Order Text for WhatsApp Message
             let text = `*নতুন অর্ডার - ফালাহ এন্টারপ্রাইজ*\n\n`;
-            text += `*গ্রাহকের বিবরণ:*\n`;
-            text += `👤 নাম: ${name}\n`;
-            text += `📞 মোবাইল: ${phone}\n`;
-            text += `📍 ঠিকানা: ${address}\n\n`;
+            text += `*গ্রাহকের বিবরণ:*\n👤 নাম: ${name}\n📞 মোবাইল: ${phone}\n📍 ঠিকানা: ${address}\n\n`;
             text += `*পণ্যের মেমো:*\n`;
 
-            let grandTotal = 0;
+            let subtotal = 0;
             cart.forEach((item, index) => {
                 let sub = item.price * item.qty;
-                grandTotal += sub;
+                subtotal += sub;
                 text += `${index + 1}. ${item.name} - ${item.qty} x ৳${item.price} = ৳${sub}\n`;
             });
 
-            text += `\n*সর্বমোট বিল: ৳${grandTotal}*`;
+            let finalTotal = (subtotal + deliveryCharge) - discount;
+            text += `\n-------------------------\n`;
+            text += `💰 পণ্য মূল্য: ৳${subtotal}\n`;
+            text += `🚚 ডেলিভারি চার্জ: ৳${deliveryCharge}\n`;
+            if(discount > 0) text += `🎁 কুপন ডিসকাউন্ট: -৳${discount}\n`;
+            text += `*💵 সর্বমোট বিল: ৳${finalTotal}*`;
 
-            // WhatsApp API URL Trigger
             let url = `https://wa.me/8801730824274?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
         }
