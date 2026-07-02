@@ -96,7 +96,7 @@
         .bill-details { margin-top: 25px; text-align: right; font-size: 1.15rem; display: flex; flex-direction: column; gap: 8px; background: var(--bg-light); padding: 20px; border-radius: 15px; }
         .total-price { font-size: 1.6rem; font-weight: 800; color: #e74c3c; border-top: 2px dashed var(--border-color); padding-top: 12px; margin-top: 5px; }
         
-        /* পেমেন্ট মেথড গেটওয়ে ডিজাইন */
+        /* পемেন্ট মেথড গেটওয়ে ডিজাইন */
         .payment-methods-headline { font-weight: 700; color: var(--text-main); margin: 25px 0 10px 0; font-size: 1.1rem; grid-column: span 2; display: flex; align-items: center; gap: 8px;}
         .payment-gateway-container { grid-column: span 2; display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 10px; }
         .pay-card { background: var(--bg-light); border: 2px solid transparent; border-radius: 12px; padding: 12px 5px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; font-weight: 700; font-size: 0.95rem; }
@@ -164,31 +164,37 @@
         <button class="filter-btn" onclick="filterItems('mosla')">মসলা ও তেল</button>
     </div>
 
+    <!-- ৫টি প্রধান পণ্য -->
     <section class="grid-container" id="product-list">
+        <!-- ১. চাল -->
         <div class="prod-card" data-cat="nito">
             <div class="image-box"><img class="prod-img" src="https://khulnabazar.com.bd/image/cache/catalog/Grocery/Aci%20pure%20nazirshail%20rice-800x800.jpg"></div>
             <div class="prod-info"><div class="prod-title">নাজিরশাইল চাল (প্রিমিয়াম)</div><div class="prod-price">৳ ৮৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-1', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-1"><button class="qty-btn" onclick="changeQty('qty-1', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('নাজিরশাইল চাল', 85, 'qty-1')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
+        <!-- ২. দেশী মসুর ডাল -->
         <div class="prod-card" data-cat="nito">
             <div class="image-box"><img class="prod-img" src="https://cf-img-a-in.tosshub.com/lingo/atbn/images/story/202209/fotojet_-_2022-09-04t180811.470-sixteen_nine.jpg?size=948:533"></div>
             <div class="prod-info"><div class="prod-title">দেশী মসুর ডাল (বড় ডানা)</div><div class="prod-price">৳ ১৪০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-2', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-2"><button class="qty-btn" onclick="changeQty('qty-2', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('দেশী মসুর ডাল', 140, 'qty-2')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
+        <!-- ৩. সাদা চিনি -->
         <div class="prod-card" data-cat="nito">
             <div class="image-box"><img class="prod-img" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/cover-20220331175937.jpg"></div>
             <div class="prod-info"><div class="prod-title">সাদা চিনি (ফ্রেশ)</div><div class="prod-price">৳ ১৩৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-3', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-3"><button class="qty-btn" onclick="changeQty('qty-3', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('সাদা চিনি', 135, 'qty-3')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
+        <!-- ৪. খাঁটি গুড়ো মরিচ -->
         <div class="prod-card" data-cat="mosla">
             <div class="image-box"><img class="prod-img" src="https://fatemafreshfood.com/wp-content/uploads/2022/08/%E0%A6%AE%E0%A6%B0%E0%A6%BF%E0%A6%9A%E0%A7%87%E0%A6%B0-%E0%A6%97%E0%A7%81%E0%A7%9C%E0%A6%BE.jpg"></div>
             <div class="prod-info"><div class="prod-title">খাঁটি গুড়ো মরিচ</div><div class="prod-price">৳ ৩২০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-4', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-4"><button class="qty-btn" onclick="changeQty('qty-4', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('খাঁটি গুড়ো মরিচ', 320, 'qty-4')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
+        <!-- ৫. ঘানি ভাঙা সরিষার তেল -->
         <div class="prod-card" data-cat="mosla">
             <div class="image-box"><img class="prod-img" src="https://www.eibbuy.com/images/1602615823.png"></div>
             <div class="prod-info"><div class="prod-title">ঘানি ভাঙা সরিষার তেল</div><div class="prod-price">৳ ২৪০ / লিটার</div>
@@ -197,6 +203,7 @@
         </div>
     </section>
 
+    <!-- কার্ট এবং ক্যাশ মেমো সেকশন -->
     <section class="cart-section" id="cart-box">
         <h2 style="color:var(--primary); text-align:center; font-weight:800; margin-bottom: 20px;"><i class="fas fa-receipt"></i> আপনার ক্যাশ মেমো (শপিং কার্ট)</h2>
         <table class="cart-table">
@@ -250,6 +257,7 @@
                 <input type="text" id="cust-address" placeholder="গ্রাম/রোড, থানা, জেলা">
             </div>
 
+            <!-- পেমেন্ট মেথড সিলেকশন সেকশন -->
             <label class="payment-methods-headline"><i class="fas fa-credit-card"></i> পেমেন্ট মাধ্যম সিলেক্ট করুন *</label>
             <div class="payment-gateway-container">
                 <div class="pay-card" id="method-cod" onclick="selectPaymentMethod('ক্যাশ অন ডেলিভারি (COD)', 'cod')">
@@ -264,12 +272,14 @@
                     <img src="https://download.logo.wine/logo/Nagad/Nagad-Vertical-Logo.wine.png" alt="Nagad">
                     <span>নগদ</span>
                 </div>
+                <!-- আপনার দেওয়া নতুন সুন্দর রকেট লোগো লিঙ্কটি এখানে যুক্ত করা হয়েছে -->
                 <div class="pay-card" id="method-rocket" onclick="selectPaymentMethod('রকেট (Rocket)', 'rocket')">
-                    <img src="https://www.bdshop.com/pub/media/b2bportal/reseller/rocket.png" alt="Rocket">
+                    <img src="https://seekvectors.com/files/download/79de895a6d15aa2b21abbfa897ccbe05.jpg" alt="Rocket">
                     <span>রকেট</span>
                 </div>
             </div>
 
+            <!-- ডাইরেক্ট পেমেন্ট বিস্তারিত গাইডেন্স বক্স -->
             <div id="payment-guide-box" class="payment-details-box"></div>
 
             <div class="form-group" id="txid-group" style="grid-column: span 2; display: none;">
@@ -406,13 +416,11 @@
             let finalTotal = (subtotal + deliveryCharge) - discount;
             totalAmount.innerText = finalTotal < 0 ? 0 : finalTotal;
             
-            // লাইভ বিল আপডেট হলে পেমেন্ট গাইডের বিলও রিফ্রেশ হবে
             if(selectedMethodName) {
                 refreshPaymentGuide();
             }
         }
 
-        // পেমেন্ট গেটওয়ে সিলেকশন ফাংশন
         function selectPaymentMethod(methodName, type) {
             selectedMethodName = methodName;
             document.querySelectorAll('.pay-card').forEach(card => card.classList.remove('selected'));
@@ -445,7 +453,7 @@
             let finalTotal = (subtotal + deliveryCharge) - discount;
             let guideBox = document.getElementById('payment-guide-box');
 
-            let number = '০১৭৩০৮২৪২৭৪'; // আপনার বিকাশ/নগদ/রকেট পার্সোনাল নম্বর
+            let number = '০১৭৩০৮২৪২৭৪';
             let cleanMethod = type === 'bkash' ? 'বিকাশ' : (type === 'nagad' ? 'নগদ' : 'রকেট');
 
             guideBox.innerHTML = `📣 <strong>ডাইরেক্ট পেমেন্ট ইন্সট্রাকশন:</strong><br>
@@ -466,7 +474,6 @@
             if(cart.length === 0) return alert('আপনার কার্ট খালি!');
             if(!selectedMethodName) return alert('অনুগ্রহ করে একটি পেমেন্ট মাধ্যম সিলেক্ট করুন।');
             
-            // যদি ডিজিটাল ওয়ালেট সিলেক্ট করা থাকে কিন্তু TxID খালি থাকে
             if(selectedMethodName !== 'ক্যাশ অন ডেলিভারি (COD)' && !txid) {
                 return alert('অনুগ্রহ করে টাকা পাঠানোর নম্বর এবং ট্রানজেকশন আইডি (TxID) প্রদান করুন।');
             }
@@ -481,8 +488,8 @@
             let finalTotal = (subtotal + deliveryCharge) - discount;
             text += `\n-------------------------\n💰 পণ্য মূল্য: ৳${subtotal}\n🚚 ডেলিভারি চার্জ: ৳${deliveryCharge}\n`;
             if(discount > 0) text += `🎁 কুপন ডিসকাউন্ট: -৳${discount}\n`;
-            text += `*💵 সর্বমোট বিল: ৳${finalTotal}*\n\n`;
-            text += `*💳 পেমেন্ট বিবরণ:*\n💥 মাধ্যম: ${selectedMethodName}\n`;
+            text += `*💵 সর্বমোট বিল: ৳${finalTotal}*`;
+            text += `\n\n*💳 পেমেন্ট বিবরণ:*\n💥 মাধ্যম: ${selectedMethodName}\n`;
             
             if(selectedMethodName !== 'ক্যাশ অন ডেলিভারি (COD)') {
                 text += `📝 TxID/নম্বর: ${txid}\n`;
