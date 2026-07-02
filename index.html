@@ -96,12 +96,24 @@
         .bill-details { margin-top: 25px; text-align: right; font-size: 1.15rem; display: flex; flex-direction: column; gap: 8px; background: var(--bg-light); padding: 20px; border-radius: 15px; }
         .total-price { font-size: 1.6rem; font-weight: 800; color: #e74c3c; border-top: 2px dashed var(--border-color); padding-top: 12px; margin-top: 5px; }
         
+        /* পেমেন্ট মেথড গেটওয়ে ডিজাইন */
+        .payment-methods-headline { font-weight: 700; color: var(--text-main); margin: 25px 0 10px 0; font-size: 1.1rem; grid-column: span 2; display: flex; align-items: center; gap: 8px;}
+        .payment-gateway-container { grid-column: span 2; display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 10px; }
+        .pay-card { background: var(--bg-light); border: 2px solid transparent; border-radius: 12px; padding: 12px 5px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; font-weight: 700; font-size: 0.95rem; }
+        .pay-card img { width: auto; height: 32px; object-fit: contain; border-radius: 5px; }
+        .pay-card.selected { border-color: #27ae60; background: var(--bg-card); box-shadow: 0 4px 15px rgba(39, 174, 96, 0.15); color: #27ae60; }
+        
+        /* পেমেন্ট বিবরণ বক্স */
+        .payment-details-box { grid-column: span 2; background: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 15px; border-radius: 12px; display: none; font-size: 0.95rem; font-weight: 600; line-height: 1.5; }
+        [data-theme="dark"] .payment-details-box { background: #2c2411; color: #ffe8a1; border-color: #4b3e1d; }
+        .payment-details-box span { font-weight: 800; font-size: 1.1rem; text-decoration: underline; }
+
         .order-form { margin-top: 35px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .form-group { display: flex; flex-direction: column; }
         .form-group label { font-weight: 700; margin-bottom: 5px; color: var(--text-main); font-size: 0.95rem; }
         .form-group input, .form-group textarea, .form-group select { padding: 12px 15px; border: 1px solid var(--border-color); background: var(--bg-light); color: var(--text-main); border-radius: 12px; font-family: inherit; outline: none; }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); background: var(--bg-card); }
-        .checkout-btn { grid-column: span 2; background: linear-gradient(135deg, #27ae60, #219150); color: white; border: none; padding: 15px; border-radius: 12px; font-size: 1.3rem; font-weight: 700; cursor: pointer; text-align: center; box-shadow: 0 5px 20px rgba(39, 174, 96, 0.4); display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .checkout-btn { grid-column: span 2; background: linear-gradient(135deg, #27ae60, #219150); color: white; border: none; padding: 15px; border-radius: 12px; font-size: 1.3rem; font-weight: 700; cursor: pointer; text-align: center; box-shadow: 0 5px 20px rgba(39, 174, 96, 0.4); display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
         .checkout-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(39, 174, 96, 0.5); }
 
         .floating-cart { position: fixed; bottom: 30px; right: 30px; background: #e74c3c; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.6rem; cursor: pointer; box-shadow: 0 10px 25px rgba(231, 76, 60, 0.5); z-index: 999; }
@@ -111,7 +123,7 @@
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
         
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.4rem; } .navbar { flex-direction: column; gap: 15px; } .order-form { grid-template-columns: 1fr; } .checkout-btn { grid-column: span 1; } .floating-cart { bottom: 20px; right: 20px; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.4rem; } .navbar { flex-direction: column; gap: 15px; } .order-form { grid-template-columns: 1fr; } .checkout-btn { grid-column: span 1; } .floating-cart { bottom: 20px; right: 20px; } .payment-gateway-container { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
@@ -152,37 +164,31 @@
         <button class="filter-btn" onclick="filterItems('mosla')">মসলা ও তেল</button>
     </div>
 
-    <!-- ৫টি প্রধান পণ্য -->
     <section class="grid-container" id="product-list">
-        <!-- ১. চাল -->
         <div class="prod-card" data-cat="nito">
             <div class="image-box"><img class="prod-img" src="https://khulnabazar.com.bd/image/cache/catalog/Grocery/Aci%20pure%20nazirshail%20rice-800x800.jpg"></div>
             <div class="prod-info"><div class="prod-title">নাজিরশাইল চাল (প্রিমিয়াম)</div><div class="prod-price">৳ ৮৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-1', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-1"><button class="qty-btn" onclick="changeQty('qty-1', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('নাজিরশাইল চাল', 85, 'qty-1')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
-        <!-- ২. দেশী মসুর ডাল -->
         <div class="prod-card" data-cat="nito">
             <div class="image-box"><img class="prod-img" src="https://cf-img-a-in.tosshub.com/lingo/atbn/images/story/202209/fotojet_-_2022-09-04t180811.470-sixteen_nine.jpg?size=948:533"></div>
             <div class="prod-info"><div class="prod-title">দেশী মসুর ডাল (বড় ডানা)</div><div class="prod-price">৳ ১৪০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-2', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-2"><button class="qty-btn" onclick="changeQty('qty-2', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('দেশী মসুর ডাল', 140, 'qty-2')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
-        <!-- ৩. সাদা চিনি -->
         <div class="prod-card" data-cat="nito">
             <div class="image-box"><img class="prod-img" src="https://cdn.jagonews24.com/media/imgAllNew/BG/2019November/cover-20220331175937.jpg"></div>
             <div class="prod-info"><div class="prod-title">সাদা চিনি (ফ্রেশ)</div><div class="prod-price">৳ ১৩৫ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-3', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-3"><button class="qty-btn" onclick="changeQty('qty-3', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('সাদা চিনি', 135, 'qty-3')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
-        <!-- ৪. খাঁটি গুড়ো মরিচ -->
         <div class="prod-card" data-cat="mosla">
             <div class="image-box"><img class="prod-img" src="https://fatemafreshfood.com/wp-content/uploads/2022/08/%E0%A6%AE%E0%A6%B0%E0%A6%BF%E0%A6%9A%E0%A7%87%E0%A6%B0-%E0%A6%97%E0%A7%81%E0%A7%9C%E0%A6%BE.jpg"></div>
             <div class="prod-info"><div class="prod-title">খাঁটি গুড়ো মরিচ</div><div class="prod-price">৳ ৩২০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-4', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-4"><button class="qty-btn" onclick="changeQty('qty-4', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('খাঁটি গুড়ো মরিচ', 320, 'qty-4')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
-        <!-- ৫. ঘানি ভাঙা সরিষার তেল -->
         <div class="prod-card" data-cat="mosla">
             <div class="image-box"><img class="prod-img" src="https://www.eibbuy.com/images/1602615823.png"></div>
             <div class="prod-info"><div class="prod-title">ঘানি ভাঙা সরিষার তেল</div><div class="prod-price">৳ ২৪০ / লিটার</div>
@@ -191,7 +197,6 @@
         </div>
     </section>
 
-    <!-- কার্ট এবং ক্যাশ মেমো সেকশন -->
     <section class="cart-section" id="cart-box">
         <h2 style="color:var(--primary); text-align:center; font-weight:800; margin-bottom: 20px;"><i class="fas fa-receipt"></i> আপনার ক্যাশ মেমো (শপিং কার্ট)</h2>
         <table class="cart-table">
@@ -244,6 +249,34 @@
                 <label>সম্পূর্ণ ঠিকানা *</label>
                 <input type="text" id="cust-address" placeholder="গ্রাম/রোড, থানা, জেলা">
             </div>
+
+            <label class="payment-methods-headline"><i class="fas fa-credit-card"></i> পেমেন্ট মাধ্যম সিলেক্ট করুন *</label>
+            <div class="payment-gateway-container">
+                <div class="pay-card" id="method-cod" onclick="selectPaymentMethod('ক্যাশ অন ডেলিভারি (COD)', 'cod')">
+                    <i class="fas fa-truck" style="font-size: 26px; color:#2c3e50; margin-bottom:2px;"></i>
+                    <span>ক্যাশ অন</span>
+                </div>
+                <div class="pay-card" id="method-bkash" onclick="selectPaymentMethod('বিকাশ (bKash)', 'bkash')">
+                    <img src="https://www.logo.wine/a/logo/BKash/BKash-Icon-Logo.wine.svg" alt="bKash">
+                    <span>বিকাশ</span>
+                </div>
+                <div class="pay-card" id="method-nagad" onclick="selectPaymentMethod('নগদ (Nagad)', 'nagad')">
+                    <img src="https://download.logo.wine/logo/Nagad/Nagad-Vertical-Logo.wine.png" alt="Nagad">
+                    <span>নগদ</span>
+                </div>
+                <div class="pay-card" id="method-rocket" onclick="selectPaymentMethod('রকেট (Rocket)', 'rocket')">
+                    <img src="https://www.bdshop.com/pub/media/b2bportal/reseller/rocket.png" alt="Rocket">
+                    <span>রকেট</span>
+                </div>
+            </div>
+
+            <div id="payment-guide-box" class="payment-details-box"></div>
+
+            <div class="form-group" id="txid-group" style="grid-column: span 2; display: none;">
+                <label>যে নম্বর থেকে টাকা পাঠিয়েছেন এবং ট্রানজেকশন আইডি (TxID) *</label>
+                <input type="text" id="cust-txid" placeholder="Ex: 01712xxxxxx, TxID: 9J87H6G5">
+            </div>
+
             <button class="checkout-btn" onclick="sendToWhatsApp()"><i class="fab fa-whatsapp"></i> অর্ডার সাবমিট করুন</button>
         </div>
     </section>
@@ -263,6 +296,7 @@
         let cart = [];
         let deliveryCharge = 0;
         let discount = 0;
+        let selectedMethodName = '';
 
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -297,7 +331,7 @@
 
         function filterItems(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            if(event && event.target) event.target.classList.add('active');
+            if(window.event && window.event.target) window.event.target.classList.add('active');
             let items = document.querySelectorAll('.prod-card');
             items.forEach(item => {
                 item.style.display = (category === 'all' || item.getAttribute('data-cat') === category) ? 'flex' : 'none';
@@ -371,6 +405,52 @@
             cartItems.innerHTML = html; subTotalSpan.innerText = subtotal; discountSpan.innerText = discount; cartCount.innerText = totalItemsCount; floatingCount.innerText = totalItemsCount;
             let finalTotal = (subtotal + deliveryCharge) - discount;
             totalAmount.innerText = finalTotal < 0 ? 0 : finalTotal;
+            
+            // লাইভ বিল আপডেট হলে পেমেন্ট গাইডের বিলও রিফ্রেশ হবে
+            if(selectedMethodName) {
+                refreshPaymentGuide();
+            }
+        }
+
+        // পেমেন্ট গেটওয়ে সিলেকশন ফাংশন
+        function selectPaymentMethod(methodName, type) {
+            selectedMethodName = methodName;
+            document.querySelectorAll('.pay-card').forEach(card => card.classList.remove('selected'));
+            document.getElementById('method-' + type).classList.add('selected');
+
+            let guideBox = document.getElementById('payment-guide-box');
+            let txidGroup = document.getElementById('txid-group');
+
+            if(type === 'cod') {
+                guideBox.style.display = 'block';
+                guideBox.innerHTML = `ℹ️ <strong>ক্যাশ অন ডেলিভারি:</strong> পণ্য হাতে পেয়ে চেক করে ডেলিভারি ম্যানের কাছে সর্বমোট টাকা পরিশোধ করবেন।`;
+                txidGroup.style.display = 'none';
+            } else {
+                txidGroup.style.display = 'flex';
+                guideBox.style.display = 'block';
+                refreshPaymentGuide(type);
+            }
+        }
+
+        function refreshPaymentGuide(type) {
+            if(!type) {
+                if(selectedMethodName.includes('bKash')) type = 'bkash';
+                else if(selectedMethodName.includes('Nagad')) type = 'nagad';
+                else if(selectedMethodName.includes('Rocket')) type = 'rocket';
+                else return;
+            }
+            
+            let subtotal = 0;
+            cart.forEach(item => subtotal += (item.price * item.qty));
+            let finalTotal = (subtotal + deliveryCharge) - discount;
+            let guideBox = document.getElementById('payment-guide-box');
+
+            let number = '০১৭৩০৮২৪২৭৪'; // আপনার বিকাশ/নগদ/রকেট পার্সোনাল নম্বর
+            let cleanMethod = type === 'bkash' ? 'বিকাশ' : (type === 'nagad' ? 'নগদ' : 'রকেট');
+
+            guideBox.innerHTML = `📣 <strong>ডাইরেক্ট পেমেন্ট ইন্সট্রাকশন:</strong><br>
+            আপনার ${cleanMethod} অ্যাপ বা মেনু থেকে আমাদের পার্সোনাল নম্বর <span>${number}</span> তে <strong>Send Money</strong> করুন।<br>
+            💵 পাঠানোর পরিমাণ: <strong>৳${finalTotal}</strong> (সর্বমোট প্রদেয় বিল)। টাকা পাঠানোর পর নিচে আপনার নম্বর ও TxID লিখে দিন।`;
         }
 
         function scrollToCart() { document.getElementById('cart-box').scrollIntoView({ behavior: 'smooth' }); }
@@ -380,9 +460,16 @@
             let phone = document.getElementById('cust-phone').value.trim();
             let area = document.getElementById('cust-area').value;
             let address = document.getElementById('cust-address').value.trim();
+            let txid = document.getElementById('cust-txid').value.trim();
 
             if(!name || !phone || !address || area === "0") return alert('অনুগ্রহ করে সব তথ্য সঠিকভাবে পূরণ করুন।');
             if(cart.length === 0) return alert('আপনার কার্ট খালি!');
+            if(!selectedMethodName) return alert('অনুগ্রহ করে একটি পেমেন্ট মাধ্যম সিলেক্ট করুন।');
+            
+            // যদি ডিজিটাল ওয়ালেট সিলেক্ট করা থাকে কিন্তু TxID খালি থাকে
+            if(selectedMethodName !== 'ক্যাশ অন ডেলিভারি (COD)' && !txid) {
+                return alert('অনুগ্রহ করে টাকা পাঠানোর নম্বর এবং ট্রানজেকশন আইডি (TxID) প্রদান করুন।');
+            }
 
             let text = `*নতুন অর্ডার - ফালাহ এন্টারপ্রাইজ*\n\n*গ্রাহকের বিবরণ:*\n👤 নাম: ${name}\n📞 মোবাইল: ${phone}\n📍 ঠিকানা: ${address}\n\n*পণ্যের মেমো:*\n`;
             let subtotal = 0;
@@ -394,7 +481,12 @@
             let finalTotal = (subtotal + deliveryCharge) - discount;
             text += `\n-------------------------\n💰 পণ্য মূল্য: ৳${subtotal}\n🚚 ডেলিভারি চার্জ: ৳${deliveryCharge}\n`;
             if(discount > 0) text += `🎁 কুপন ডিসকাউন্ট: -৳${discount}\n`;
-            text += `*💵 সর্বমোট বিল: ৳${finalTotal}*`;
+            text += `*💵 সর্বমোট বিল: ৳${finalTotal}*\n\n`;
+            text += `*💳 পেমেন্ট বিবরণ:*\n💥 মাধ্যম: ${selectedMethodName}\n`;
+            
+            if(selectedMethodName !== 'ক্যাশ অন ডেলিভারি (COD)') {
+                text += `📝 TxID/নম্বর: ${txid}\n`;
+            }
 
             window.open(`https://wa.me/8801730824274?text=${encodeURIComponent(text)}`, '_blank');
         }
