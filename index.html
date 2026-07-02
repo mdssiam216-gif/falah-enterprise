@@ -109,12 +109,6 @@
 
         .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px); background: #2d3748; color: white; padding: 12px 30px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); font-weight: 600; z-index: 2000; opacity: 0; pointer-events: none; }
         .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-
-        .info-box { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .info-card { background: var(--bg-card); padding: 35px 20px; border-radius: var(--radius); text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border-color); border-top: 5px solid var(--primary); }
-        .info-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
-
-        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 35px 20px; margin-top: 80px; font-size: 1rem; border-top: 3px solid var(--accent); }
         
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) { .hero h1 { font-size: 2.4rem; } .navbar { flex-direction: column; gap: 15px; } .order-form { grid-template-columns: 1fr; } .checkout-btn { grid-column: span 1; } .floating-cart { bottom: 20px; right: 20px; } }
@@ -160,7 +154,7 @@
 
     <!-- ৫টি প্রধান পণ্য -->
     <section class="grid-container" id="product-list">
-        <!-- ১. চাল (আপনার দেওয়া নতুন ছবি এখানে ফিক্সড) -->
+        <!-- ১. চাল -->
         <div class="prod-card" data-cat="nito">
             <div class="image-box"><img class="prod-img" src="https://khulnabazar.com.bd/image/cache/catalog/Grocery/Aci%20pure%20nazirshail%20rice-800x800.jpg"></div>
             <div class="prod-info"><div class="prod-title">নাজিরশাইল চাল (প্রিমিয়াম)</div><div class="prod-price">৳ ৮৫ / কেজি</div>
@@ -170,7 +164,7 @@
         <!-- ২. দেশী মসুর ডাল -->
         <div class="prod-card" data-cat="nito">
             <div class="image-box"><img class="prod-img" src="https://cf-img-a-in.tosshub.com/lingo/atbn/images/story/202209/fotojet_-_2022-09-04t180811.470-sixteen_nine.jpg?size=948:533"></div>
-            <div class="prod-info"><div class="prod-title">দেশী মসুর ডাল (বড় দানা)</div><div class="prod-price">৳ ১৪০ / কেজি</div>
+            <div class="prod-info"><div class="prod-title">দেশী মসুর ডাল (বড় ডানা)</div><div class="prod-price">৳ ১৪০ / কেজি</div>
             <div class="quantity-select"><button class="qty-btn" onclick="changeQty('qty-2', -1)">-</button><input type="text" class="qty-input" value="1" id="qty-2"><button class="qty-btn" onclick="changeQty('qty-2', 1)">+</button></div>
             <button class="add-cart-btn" onclick="addToCart('দেশী মসুর ডাল', 140, 'qty-2')"><i class="fas fa-cart-plus"></i> কার্টে যোগ করুন</button></div>
         </div>
@@ -260,20 +254,6 @@
     </div>
 
     <div class="toast" id="toast-msg">পণ্য কার্টে যোগ করা হয়েছে!</div>
-
-    <section class="info-box">
-        <div class="info-card">
-            <i class="fas fa-user-tie"></i>
-            <h3>প্রোপ্রাইটর</h3>
-            <p style="font-weight: bold; font-size:1.25rem; color: var(--accent); margin-top:5px;">মো: শফিকুল ইসলাম</p>
-            <p style="color:var(--text-muted); font-weight: 600;">০১৭৩০৮২৪২৭৪</p>
-        </div>
-        <div class="info-card">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>আমাদের ঠিকানা</h3>
-            <p style="margin-top:5px; font-weight:500;">রেইসকোর্স, ফ্লাইওভার সংলগ্ন, সানমেডিকেল গলি, কুমিল্লা।</p>
-        </div>
-    </section>
 
     <footer>
         <p>&copy; 2026 ফালাহ এন্টারপ্রাইজ। সর্বস্বত্ব সংরক্ষিত।</p>
